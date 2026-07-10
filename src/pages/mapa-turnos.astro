@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BuscadorFarmacias from '../components/farmacias/BuscadorFarmacias.tsx';
+---
+
+<Layout
+  title="Mapa de Turnos - FarmaTurno Chile"
+  description="Encuentra farmacias de turno cerca de ti con mapa interactivo, geolocalización y distancia en tiempo real."
+>
+  <Header />
+
+  <main class="grow container mx-auto px-4 py-8 md:py-12">
+    <BuscadorFarmacias client:load />
+  </main>
+
+  <Footer />
+</Layout>

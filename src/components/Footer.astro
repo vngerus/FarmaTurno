@@ -1,0 +1,103 @@
+---
+import { Phone } from 'lucide-astro';
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="w-full bg-[#f2efe4] border-t-2 border-[#0f1f19] mt-auto py-12 text-[#33443d]">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="bg-[#065f46] p-1.5 rounded-lg">
+            <svg
+              class="w-4 h-4 text-[#faf9f4]"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19 10.5V20a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-9.5a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4Z"
+              ></path>
+            </svg>
+          </div>
+          <span class="font-bold text-[#0f1f19] font-heading">FarmaTurno Chile</span>
+        </div>
+        <p class="text-xs leading-relaxed max-w-sm">
+          Buscador de farmacias de turno nacionales y gestor personal de medicamentos. Desarrollado
+          como evidencia evaluativa para la Unidad 3 de INACAP (SPA con React + Islas de Astro).
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-bold font-mono text-[#0f1f19] uppercase tracking-widest mb-4">
+          Teléfonos de Emergencia
+        </h4>
+        <ul class="space-y-2 text-xs font-mono">
+          <li>
+            <a
+              href="tel:131"
+              class="hover:text-[#065f46] transition-colors flex items-center gap-1.5 font-medium"
+            >
+              <Phone class="w-3.5 h-3.5" /> SAMU (Ambulancia): <strong>131</strong>
+            </a>
+          </li>
+          <li>
+            <a
+              href="tel:133"
+              class="hover:text-[#065f46] transition-colors flex items-center gap-1.5 font-medium"
+            >
+              <Phone class="w-3.5 h-3.5" /> Carabineros de Chile: <strong>133</strong>
+            </a>
+          </li>
+          <li>
+            <a
+              href="tel:6003607777"
+              class="hover:text-[#065f46] transition-colors flex items-center gap-1.5 font-medium"
+            >
+              <Phone class="w-3.5 h-3.5" /> Salud Responde (MINSAL): <strong>600 360 7777</strong>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-bold font-mono text-[#0f1f19] uppercase tracking-widest mb-4">
+          Fuentes & Tecnología
+        </h4>
+        <p class="text-xs leading-relaxed">
+          Los datos de farmacias de turno son obtenidos en tiempo real del endpoint público oficial
+          de la Subsecretaría de Redes Asistenciales, Ministerio de Salud de Chile (MINSAL).
+        </p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="px-2 py-0.5 bg-white border border-[#0f1f19] rounded text-[10px] font-mono"
+            >Astro 5+</span
+          >
+          <span class="px-2 py-0.5 bg-white border border-[#0f1f19] rounded text-[10px] font-mono"
+            >React 19</span
+          >
+          <span class="px-2 py-0.5 bg-white border border-[#0f1f19] rounded text-[10px] font-mono"
+            >Tailwind v4</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="border-t-2 border-[#0f1f19] pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] gap-4"
+    >
+      <p>&copy; {currentYear} FarmaTurno Chile. Todos los derechos reservados.</p>
+      <div class="flex items-center gap-4">
+        <a
+          href="/politica-de-privacidad"
+          class="font-mono uppercase tracking-wide hover:text-[#065f46] transition-colors"
+        >
+          Política de Privacidad
+        </a>
+        <p>Entorno de Evaluación</p>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BotiquinGate from '../components/botiquin/BotiquinGate.tsx';
+---
+
+<Layout title="Mi Botiquín - FarmaTurno Chile" description="Gestiona tu botiquín personal y controla el stock de tus medicamentos.">
+  <Header />
+
+  <main class="flex-grow container mx-auto px-4 py-8 md:py-12">
+    <BotiquinGate client:load />
+  </main>
+
+  <Footer />
+</Layout>
