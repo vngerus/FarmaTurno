@@ -6,12 +6,16 @@
  */
 
 const ISP_BASE_URL = 'https://registrosanitario.ispch.gob.cl';
-const ISP_BUSQUEDA_URL = `${ISP_BASE_URL}/Busqueda_Producto.aspx`;
+const ISP_BUSQUEDA_URL = ISP_BASE_URL;
+
+// Node.js fetch agent for handling insecure HTTPS (ISP cert issues)
+import https from 'node:https';
+const agent = new https.Agent({ rejectUnauthorized: false });
 
 /**
  * Extracts ASP.NET hidden form fields from HTML
  * @param {string} html - HTML content from ISP page
- * @returns {Object} Object with viewState, viewStateGenerator, eventValidation
+ * @returns {Object} Object with viewState, viewStateGenerator, viewStateEncrypted, eventValidation
  * @throws {Error} If any required field cannot be extracted
  */
 export function extractHiddenFields(html) {
@@ -33,10 +37,15 @@ export function extractHiddenFields(html) {
     throw new Error('Could not extract __EVENTVALIDATION from HTML');
   }
 
+  // Extract __VIEWSTATEENCRYPTED (optional, may not always be present)
+  const viewStateEncryptedMatch = html.match(/<input[^>]+name="__VIEWSTATEENCRYPTED"[^>]+value="([^"]*)"[^>]*>/i);
+  const viewStateEncrypted = viewStateEncryptedMatch ? viewStateEncryptedMatch[1] : '';
+
   return {
     viewState: viewStateMatch[1],
     viewStateGenerator: viewStateGeneratorMatch[1],
     eventValidation: eventValidationMatch[1],
+    viewStateEncrypted,
   };
 }
 
@@ -127,6 +136,7 @@ export async function scrapeProductosPorPrincipioActivo(term) {
       headers: {
         'User-Agent': 'Mozilla/5.0 (compatible; ISPScraper/1.0)',
       },
+      agent,
     });
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -145,13 +155,17 @@ export async function scrapeProductosPorPrincipioActivo(term) {
 
   // Step 2: POST to toggle checkbox (reveal product name input)
   try {
-    postBody = new URLSearchParams({
+    const step2Params = {
       __VIEWSTATE: fields.viewState,
       __VIEWSTATEGENERATOR: fields.viewStateGenerator,
       __EVENTVALIDATION: fields.eventValidation,
-      __EVENTTARGET: 'ctl00$ContentPlaceHolder1$chkTipoBusqueda$0',
+      __EVENTTARGET: 'ctl00$ContentPlaceHolder1$chkTipoBusqueda$1', // Checkbox 1 = Principio Activo
       __EVENTARGUMENT: '',
-    });
+    };
+    if (fields.viewStateEncrypted) {
+      step2Params.__VIEWSTATEENCRYPTED = fields.viewStateEncrypted;
+    }
+    postBody = new URLSearchParams(step2Params);
 
     response = await fetch(ISP_BUSQUEDA_URL, {
       method: 'POST',
@@ -160,6 +174,7 @@ export async function scrapeProductosPorPrincipioActivo(term) {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: postBody.toString(),
+      agent,
     });
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -178,15 +193,19 @@ export async function scrapeProductosPorPrincipioActivo(term) {
 
   // Step 3: POST actual search
   try {
-    postBody = new URLSearchParams({
+    const step3Params = {
       __VIEWSTATE: fields.viewState,
       __VIEWSTATEGENERATOR: fields.viewStateGenerator,
       __EVENTVALIDATION: fields.eventValidation,
-      'ctl00$ContentPlaceHolder1$chkTipoBusqueda$0': 'on', // Checkbox must be checked
-      'ctl00$ContentPlaceHolder1$txtNombreProducto': term,
+      'ctl00$ContentPlaceHolder1$chkTipoBusqueda$1': 'on', // Checkbox 1 = Principio Activo must be checked
+      'ctl00$ContentPlaceHolder1$txtPrincipioActivo': term,
       'ctl00$ContentPlaceHolder1$ddlEstado': 'Sí', // Vigente status
       'ctl00$ContentPlaceHolder1$btnBuscar': 'Buscar',
-    });
+    };
+    if (fields.viewStateEncrypted) {
+      step3Params.__VIEWSTATEENCRYPTED = fields.viewStateEncrypted;
+    }
+    postBody = new URLSearchParams(step3Params);
 
     response = await fetch(ISP_BUSQUEDA_URL, {
       method: 'POST',
@@ -195,6 +214,7 @@ export async function scrapeProductosPorPrincipioActivo(term) {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: postBody.toString(),
+      agent,
     });
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
