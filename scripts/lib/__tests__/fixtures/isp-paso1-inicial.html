@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Búsqueda de Productos - Registro Sanitario ISP</title>
+</head>
+<body>
+    <form method="post" id="aspnetForm">
+        <div>
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="dGhpcyBpcyBhIGZha2Ugdmlld3N0YXRlIHZhbHVlIGZvciBUZXN0aW5nIFZhbHVl" />
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+            <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="dGhpcyBpcyBhIGZha2UgZXZlbnQgdmFsaWRhdGlvbiB2YWx1ZSBmb3IgVGVzdGluZ1B1cnBvc2VzIHdpdGggYWRkaXRpb25hbCBkYXRh" />
+        </div>
+
+        <div id="ctl00_ContentPlaceHolder1">
+            <fieldset>
+                <legend>Seleccione tipo de búsqueda:</legend>
+
+                <div id="ctl00_ContentPlaceHolder1_chkTipoBusqueda">
+                    <span>
+                        <input id="ctl00_ContentPlaceHolder1_chkTipoBusqueda_0" type="checkbox" name="ctl00$ContentPlaceHolder1$chkTipoBusqueda$0" value="Nombre Producto" />
+                        <label for="ctl00_ContentPlaceHolder1_chkTipoBusqueda_0">Nombre Producto</label>
+                    </span>
+                    <span>
+                        <input id="ctl00_ContentPlaceHolder1_chkTipoBusqueda_1" type="checkbox" name="ctl00$ContentPlaceHolder1$chkTipoBusqueda$1" value="Principio Activo" />
+                        <label for="ctl00_ContentPlaceHolder1_chkTipoBusqueda_1">Principio Activo</label>
+                    </span>
+                </div>
+
+                <div id="ctl00_ContentPlaceHolder1_pnlNombreProducto" style="display:none">
+                    <label for="ctl00_ContentPlaceHolder1_txtNombreProducto">Nombre del Producto:</label>
+                    <input id="ctl00_ContentPlaceHolder1_txtNombreProducto" type="text" name="ctl00$ContentPlaceHolder1$txtNombreProducto" />
+                </div>
+
+                <div>
+                    <label for="ctl00_ContentPlaceHolder1_ddlEstado">Estado:</label>
+                    <select id="ctl00_ContentPlaceHolder1_ddlEstado" name="ctl00$ContentPlaceHolder1$ddlEstado">
+                        <option value="">-- Seleccione --</option>
+                        <option value="Sí" selected="selected">Vigente (Sí)</option>
+                        <option value="No">No Vigente (No)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <button id="ctl00_ContentPlaceHolder1_btnBuscar" type="submit" name="ctl00$ContentPlaceHolder1$btnBuscar" value="Buscar">Buscar</button>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</body>
+</html>
