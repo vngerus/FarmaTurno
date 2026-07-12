@@ -1,7 +1,8 @@
 import React from 'react';
 import { Search } from 'lucide-react';
 import TarjetaFarmacia from './TarjetaFarmacia';
-import type { Farmacia, User } from '../../types';
+import type { Farmacia } from '../../types/farmacias.types';
+import type { User } from '../../types/auth.types';
 
 interface ListaFarmaciasProps {
   farmacias: Farmacia[];

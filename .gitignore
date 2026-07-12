@@ -34,3 +34,12 @@ supabase/sql
 
 # scripts
 scripts/*
+
+# agents
+.agents/
+.claude
+.kiro
+
+# data 
+.data
+data

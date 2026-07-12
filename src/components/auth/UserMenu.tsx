@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { User as UserIcon, LogOut, Heart, MapPin, UserCheck, Pill } from 'lucide-react';
-import type { User } from '../../types';
+import type { User } from '../../types/auth.types';
 
 interface UserMenuProps {
   user: User | null;
@@ -35,29 +35,26 @@ export default function UserMenu({ user, onLogout, onOpenLogin }: UserMenuProps)
 
       {isOpen && (
         <>
-          <div
-            onClick={() => setIsOpen(false)}
-            className="fixed inset-0 z-40 bg-transparent"
-          ></div>
+          <div onClick={() => setIsOpen(false)} className="fixed inset-0 z-40 bg-transparent"></div>
 
           <div className="absolute right-0 mt-2 w-56 bg-white border-2 border-[#0f1f19] rounded-xl shadow-[4px_4px_0_#0f1f19] z-50 py-2 divide-y divide-slate-100 animate-zoom-in">
             <div className="px-4 py-2.5">
-              <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Tu Cuenta</p>
+              <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">
+                Tu Cuenta
+              </p>
               <p className="text-sm font-bold text-slate-800 truncate">{user.username}</p>
               <p className="text-[10px] text-slate-500 font-semibold truncate">{user.email}</p>
             </div>
 
             <div className="px-2 py-1.5 space-y-1">
               <div className="flex items-center gap-2 px-3 py-1.5 text-xs text-slate-600 font-semibold">
-                <MapPin className="w-3.5 h-3.5 text-mint-600 flex-shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-mint-600 shrink-0" />
                 <span className="truncate">
-                  {user.favoriteComuna
-                    ? `Zona: ${user.favoriteComuna}`
-                    : 'Sin comuna favorita'}
+                  {user.favoriteComuna ? `Zona: ${user.favoriteComuna}` : 'Sin comuna favorita'}
                 </span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 text-xs text-slate-600 font-semibold">
-                <Heart className="w-3.5 h-3.5 text-rose-500 flex-shrink-0" />
+                <Heart className="w-3.5 h-3.5 text-rose-500 shrink-0" />
                 <span>Favoritos: {user.favoritePharmacies?.length || 0} locales</span>
               </div>
             </div>

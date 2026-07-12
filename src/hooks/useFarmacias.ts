@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { obtenerFarmacias } from '../services/farmacias.service';
-import { type Farmacia, REGION_MAP, REGIONES_ORDEN } from '../types';
+import type { Farmacia } from '../types/farmacias.types';
+import { REGION_MAP, REGIONES_ORDEN } from '../types/regiones.constants';
 
 const CACHE_KEY = 'farmaturno_farmacias_cache';
 const CACHE_TTL_MS = 10 * 60 * 1000;

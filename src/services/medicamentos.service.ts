@@ -1,5 +1,5 @@
 import { supabase } from '../lib/supabaseClient';
-import type { Medicamento } from '../types';
+import type { Medicamento } from '../types/medicamentos.types';
 
 interface MedicamentoRow {
   id: string;

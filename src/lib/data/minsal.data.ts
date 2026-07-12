@@ -1,19 +1,4 @@
-export interface Farmacia {
-  fecha: string;
-  local_id: string;
-  local_nombre: string;
-  comuna_nombre: string;
-  localidad_nombre: string;
-  local_direccion: string;
-  funcionamiento_hora_apertura: string;
-  funcionamiento_hora_cierre: string;
-  local_telefono: string;
-  local_lat: string;
-  local_lng: string;
-  funcionamiento_dia: string;
-  fk_region: string;
-  fk_comuna: string;
-}
+import type { Farmacia } from '../../types/farmacias.types';
 
 const MINSAL_URL = 'https://midas.minsal.cl/farmacia_v2/WS/getLocalesTurnos.php';
 const TIMEOUT_MS = 7000;
@@ -23,12 +8,7 @@ export async function obtenerFarmaciasMinsal(): Promise<Farmacia[]> {
   const timeoutId = setTimeout(() => controller.abort(), TIMEOUT_MS);
 
   try {
-    const response = await fetch(MINSAL_URL, {
-      signal: controller.signal,
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-      }
-    });
+    const response = await fetch(MINSAL_URL, { signal: controller.signal });
 
     if (!response.ok) {
       throw new Error(`MINSAL respondió con status ${response.status}`);
