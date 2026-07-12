@@ -16,14 +16,14 @@ export default function ListaFarmacias({
   selectedFarmaciaId,
   activeUser,
   onSelectFarmacia,
-  onToggleFavorite
+  onToggleFavorite,
 }: ListaFarmaciasProps) {
   if (farmacias.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-16 px-4 bg-slate-50 border border-slate-100 rounded-2xl text-center">
         <Search className="w-10 h-10 text-slate-400 mb-2" />
         <p className="font-extrabold text-slate-800">No hay turnos coincidentes</p>
-        <p className="text-xs text-slate-500 mt-1 max-w-[280px]">
+        <p className="text-xs text-slate-500 mt-1 max-w-70">
           Intenta cambiar la comuna seleccionada o limpia los términos de búsqueda.
         </p>
       </div>
@@ -31,8 +31,8 @@ export default function ListaFarmacias({
   }
 
   return (
-    <div className="flex flex-col gap-4 max-h-[600px] overflow-y-auto p-2 -m-2 custom-scrollbar">
-      {farmacias.map((farmacia) => (
+    <div className="flex flex-col gap-4 max-h-150 overflow-y-auto p-2 -m-2 custom-scrollbar">
+      {farmacias.map(farmacia => (
         <TarjetaFarmacia
           key={farmacia.local_id}
           farmacia={farmacia}
