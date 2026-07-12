@@ -31,3 +31,6 @@ pnpm-debug.log*
 
 # supabase schemas
 supabase/sql
+
+# scripts
+scripts/*
