@@ -8,7 +8,7 @@ import {
   crearMedicamento,
   actualizarMedicamento,
   eliminarMedicamento,
-  tomarDosisMedicamento
+  tomarDosisMedicamento,
 } from '../../services/medicamentos.service';
 import type { Medicamento, User } from '../../types';
 
@@ -27,7 +27,7 @@ export default function BotiquinCRUD({ user }: BotiquinCRUDProps) {
   useEffect(() => {
     obtenerMedicamentos(user.id)
       .then(setMedicamentos)
-      .catch((err) => {
+      .catch(err => {
         console.error('Error cargando el botiquín:', err);
         alert('No se pudo cargar tu botiquín. Inténtalo más tarde.');
       })
@@ -55,10 +55,10 @@ export default function BotiquinCRUD({ user }: BotiquinCRUDProps) {
     try {
       if (editingMedicamento) {
         const actualizado = await actualizarMedicamento(editingMedicamento.id, medData);
-        setMedicamentos((prev) => prev.map((m) => (m.id === actualizado.id ? actualizado : m)));
+        setMedicamentos(prev => prev.map(m => (m.id === actualizado.id ? actualizado : m)));
       } else {
         const nuevo = await crearMedicamento(user.id, medData);
-        setMedicamentos((prev) => [nuevo, ...prev]);
+        setMedicamentos(prev => [nuevo, ...prev]);
       }
       setIsFormOpen(false);
     } catch (err) {
@@ -68,12 +68,12 @@ export default function BotiquinCRUD({ user }: BotiquinCRUDProps) {
   };
 
   const handleTakeDose = async (id: string) => {
-    const medicamento = medicamentos.find((m) => m.id === id);
+    const medicamento = medicamentos.find(m => m.id === id);
     if (!medicamento) return;
 
     try {
       const actualizado = await tomarDosisMedicamento(id, medicamento.stockActual);
-      setMedicamentos((prev) => prev.map((m) => (m.id === id ? actualizado : m)));
+      setMedicamentos(prev => prev.map(m => (m.id === id ? actualizado : m)));
     } catch (err) {
       console.error('Error registrando la toma de dosis:', err);
       alert('No se pudo actualizar el stock. Inténtalo de nuevo.');
@@ -84,7 +84,7 @@ export default function BotiquinCRUD({ user }: BotiquinCRUDProps) {
     if (!deletingId) return;
     try {
       await eliminarMedicamento(deletingId);
-      setMedicamentos((prev) => prev.filter((m) => m.id !== deletingId));
+      setMedicamentos(prev => prev.filter(m => m.id !== deletingId));
     } catch (err) {
       console.error('Error eliminando medicamento:', err);
       alert('No se pudo eliminar el medicamento. Inténtalo de nuevo.');
@@ -94,14 +94,14 @@ export default function BotiquinCRUD({ user }: BotiquinCRUDProps) {
   };
 
   return (
-    <div className="w-full bg-white border-2 border-[#0f1f19] rounded-[1.5rem] p-6 md:p-8">
+    <div className="w-full bg-white border-2 border-[#0f1f19] rounded-3xl p-6 md:p-8">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[#0f1f19] flex items-center gap-2 font-heading">
             <Pill className="w-7 h-7 text-[#065f46]" />
             Mi Botiquín Personal
           </h2>
-          <p className="text-[#33443d] text-sm mt-1 font-semibold">
+          <p className="text-brand-body text-sm mt-1 font-semibold">
             Sesión activa: botiquín privado de @{user.username}.
           </p>
         </div>
@@ -117,19 +117,22 @@ export default function BotiquinCRUD({ user }: BotiquinCRUDProps) {
       {loading ? (
         <div className="flex flex-col items-center justify-center py-20 gap-3">
           <RefreshCw className="w-10 h-10 text-[#065f46] animate-spin" />
-          <p className="text-[#33443d] text-sm font-semibold animate-pulse">Cargando tu botiquín...</p>
+          <p className="text-brand-body text-sm font-semibold animate-pulse">
+            Cargando tu botiquín...
+          </p>
         </div>
       ) : medicamentos.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-16 px-4 bg-slate-50/50 border border-slate-200 border-dashed rounded-2xl text-center">
           <Pill className="w-12 h-12 text-slate-400 mb-3 animate-pulse" />
           <p className="font-extrabold text-slate-800 text-base">Tu botiquín está vacío</p>
-          <p className="text-xs text-slate-500 mt-1 max-w-[340px]">
-            No tienes medicamentos registrados. Presiona "Añadir Medicamento" para comenzar a gestionar tu stock.
+          <p className="text-xs text-slate-500 mt-1 max-w-85">
+            No tienes medicamentos registrados. Presiona "Añadir Medicamento" para comenzar a
+            gestionar tu stock.
           </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {medicamentos.map((med) => (
+          {medicamentos.map(med => (
             <TarjetaMedicamento
               key={med.id}
               medicamento={med}

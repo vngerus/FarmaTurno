@@ -31,7 +31,7 @@ export default function ListaFarmacias({
   }
 
   return (
-    <div className="flex flex-col gap-4 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
+    <div className="flex flex-col gap-4 max-h-[600px] overflow-y-auto p-2 -m-2 custom-scrollbar">
       {farmacias.map((farmacia) => (
         <TarjetaFarmacia
           key={farmacia.local_id}
