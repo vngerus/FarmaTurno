@@ -4,6 +4,6 @@ const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL;
 const supabaseKey = import.meta.env.PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
 export const supabase = createClient(
-  supabaseUrl || 'https://placeholder-url-for-build.supabase.co',
-  supabaseKey || 'placeholder-key-for-build'
+  supabaseUrl as string,
+  supabaseKey as string
 );

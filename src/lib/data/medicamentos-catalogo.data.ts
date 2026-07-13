@@ -13,13 +13,14 @@ export async function buscarMedicamentosCatalogo(
   signal?: AbortSignal
 ): Promise<ResultadoBusquedaMedicamento[]> {
   const term = termino.trim();
-  if (term.length < 2) return [];
+  const safeTerm = term.replace(/[%,()\\]/g, '');
+  if (safeTerm.length < 2) return [];
 
   // Search medicamentos_catalogo by nombre_producto OR principio_activo OR empresa (ilike)
   let productosQuery = supabase
     .from('medicamentos_catalogo')
     .select('registro_isp, nombre_producto, empresa, principio_activo')
-    .or(`nombre_producto.ilike.%${term}%,principio_activo.ilike.%${term}%,empresa.ilike.%${term}%`)
+    .or(`nombre_producto.ilike.*${safeTerm}*,principio_activo.ilike.*${safeTerm}*,empresa.ilike.*${safeTerm}*`)
     .order('nombre_producto')
     .limit(20);
   if (signal) productosQuery = productosQuery.abortSignal(signal);
