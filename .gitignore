@@ -25,3 +25,19 @@ pnpm-debug.log*
 
 # visual studio code setting folder
 .vscode/
+
+# superpowers 
+.superpowers/
+
+# supabase schemas
+supabase/sql
+
+# scripts
+scripts/*
+
+# agents
+.agents/
+.claude
+.kiro
+
+/data

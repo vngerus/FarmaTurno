@@ -3,73 +3,102 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const actualizado = new Date().toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' });
+const actualizado = new Date().toLocaleDateString('es-CL', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
 ---
 
-<Layout title="Política de Privacidad - FarmaTurno Chile" description="Cómo FarmaTurno Chile guarda y usa tus datos: sesión, botiquín personal y ubicación.">
+<Layout
+  title="Política de Privacidad - FarmaTurno Chile"
+  description="Cómo FarmaTurno Chile guarda y usa tus datos: sesión, botiquín personal y ubicación."
+>
   <Header />
 
   <main class="grow container mx-auto px-4 py-10 md:py-16 max-w-3xl">
     <div class="border-b-2 border-[#0f1f19] pb-6 mb-8">
-      <span class="font-mono text-[13.5px] font-bold text-[#e8632c] tracking-wide uppercase">Legal</span>
+      <span class="font-mono text-[13.5px] font-bold text-[#e8632c] tracking-wide uppercase"
+        >Legal</span
+      >
       <h1 class="mt-1.5 font-heading font-bold text-3xl md:text-4xl tracking-tight text-[#0f1f19]">
         Política de Privacidad
       </h1>
-      <p class="mt-2 text-sm text-[#33443d]">Última actualización: {actualizado}</p>
+      <p class="mt-2 text-sm text-brand-body">Última actualización: {actualizado}</p>
     </div>
 
-    <div class="space-y-8 text-[15px] leading-relaxed text-[#33443d]">
+    <div class="space-y-8 text-[15px] leading-relaxed text-brand-body">
       <section>
         <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">1. Qué datos guardamos</h2>
         <p>
-          FarmaTurno Chile es un proyecto académico (Evaluación 3, INACAP). Tu cuenta y tus datos sensibles se guardan
-          en <strong>Supabase</strong>, una base de datos con autenticación real, protegida con
-          <strong>Row Level Security (RLS)</strong>: cada usuario solo puede leer y modificar sus propios datos, nunca
-          los de otra cuenta. Guardamos:
+          FarmaTurno Chile es un proyecto académico (Evaluación 3, INACAP). Tu cuenta y tus datos
+          sensibles se guardan en <strong>Supabase</strong>, una base de datos con autenticación
+          real, protegida con
+          <strong>Row Level Security (RLS)</strong>: cada usuario solo puede leer y modificar sus
+          propios datos, nunca los de otra cuenta. Guardamos:
         </p>
         <ul class="list-disc pl-6 mt-2 space-y-1">
-          <li>Tu correo electrónico y contraseña (gestionados por Supabase Auth, la contraseña nunca se guarda en texto plano).</li>
+          <li>
+            Tu correo electrónico y contraseña (gestionados por Supabase Auth, la contraseña nunca
+            se guarda en texto plano).
+          </li>
           <li>Tu nombre de usuario y tu región/comuna favorita.</li>
           <li>Las farmacias que marcás como favoritas.</li>
-          <li>Los medicamentos de tu botiquín personal (nombre, dosis, stock y horario de toma).</li>
-          <li>Tu ubicación geográfica aproximada, solo mientras usas el mapa, para calcular distancias — esta no se guarda en la base de datos, solo se usa en tu sesión de navegador.</li>
+          <li>
+            Los medicamentos de tu botiquín personal (nombre, dosis, stock y horario de toma).
+          </li>
+          <li>
+            Tu ubicación geográfica aproximada, solo mientras usas el mapa, para calcular distancias
+            — esta no se guarda en la base de datos, solo se usa en tu sesión de navegador.
+          </li>
         </ul>
       </section>
 
       <section>
         <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">2. Cómo la usamos</h2>
         <p>
-          Estos datos se usan exclusivamente para que la aplicación funcione: identificar tu sesión, mostrarte tu
-          botiquín y favoritos, y calcular la distancia entre tu ubicación y las farmacias de turno. No vendemos ni
-          compartimos tus datos con terceros con fines comerciales.
+          Estos datos se usan exclusivamente para que la aplicación funcione: identificar tu sesión,
+          mostrarte tu botiquín y favoritos, y calcular la distancia entre tu ubicación y las
+          farmacias de turno. No vendemos ni compartimos tus datos con terceros con fines
+          comerciales.
         </p>
       </section>
 
       <section>
-        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">3. Ubicación (geolocalización)</h2>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">
+          3. Ubicación (geolocalización)
+        </h2>
         <p>
-          Pedimos permiso de ubicación al navegador para centrar el mapa y ordenar las farmacias por cercanía. Podés
-          negar o revocar este permiso en cualquier momento desde la configuración de tu navegador; la app sigue
-          funcionando sin ubicación, solo sin distancia calculada.
+          Pedimos permiso de ubicación al navegador para centrar el mapa y ordenar las farmacias por
+          cercanía. Podés negar o revocar este permiso en cualquier momento desde la configuración
+          de tu navegador; la app sigue funcionando sin ubicación, solo sin distancia calculada.
         </p>
       </section>
 
       <section>
         <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">4. Terceros</h2>
         <p>
-          Consultamos la API pública del MINSAL para obtener el listado de farmacias de turno, y usamos OpenStreetMap
-          (vía Leaflet) para mostrar el mapa. Usamos Supabase como proveedor de autenticación y base de datos. Ninguno
-          de estos servicios recibe tus credenciales ni tu botiquín salvo Supabase, que los almacena de forma segura
-          y protegida por RLS.
+          Consultamos la API pública del MINSAL para obtener el listado de farmacias de turno, y
+          usamos OpenStreetMap (vía Leaflet) para mostrar el mapa. Usamos Supabase como proveedor de
+          autenticación y base de datos. Ninguno de estos servicios recibe tus credenciales ni tu
+          botiquín salvo Supabase, que los almacena de forma segura y protegida por RLS.
+        </p>
+        <p class="mt-2">
+          El catálogo de medicamentos proviene de fuentes oficiales chilenas (Instituto de Salud
+          Pública e ISP, y CENABAST). Estos datos se recopilaron una vez durante el desarrollo y se
+          guardan en Supabase — tu navegador no se conecta directamente a esas fuentes al buscar un
+          medicamento, ni ellas reciben información tuya.
         </p>
       </section>
 
       <section>
-        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">5. Cómo eliminar tus datos</h2>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">
+          5. Cómo eliminar tus datos
+        </h2>
         <p>
-          Puedes eliminar tus medicamentos y favoritos en cualquier momento desde la propia aplicación. Si quieres
-          eliminar tu cuenta por completo (perfil, botiquín y favoritos asociados), escríbenos y la damos de baja de
-          la base de datos.
+          Puedes eliminar tus medicamentos y favoritos en cualquier momento desde la propia
+          aplicación. Si quieres eliminar tu cuenta por completo (perfil, botiquín y favoritos
+          asociados), escríbenos y la damos de baja de la base de datos.
         </p>
       </section>
     </div>

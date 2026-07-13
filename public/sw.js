@@ -1,5 +1,4 @@
-// public/sw.js - Service Worker para PWA FarmaTurno Chile
-const CACHE_NAME = 'farmaturno-v2';
+const CACHE_NAME = 'farmaturno-v3';
 const ASSETS = [
   '/favicon.svg',
   '/favicon.ico',
@@ -8,7 +7,6 @@ const ASSETS = [
   '/icon-512.png'
 ];
 
-// Instalar el Service Worker y almacenar en caché solo los assets estáticos del shell (no HTML)
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -17,7 +15,6 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Limpiar cachés antiguas en la activación
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
@@ -32,8 +29,6 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Navegación (HTML): red primero, caché solo como respaldo offline.
-// Assets estáticos propios: caché primero. Nunca interceptar orígenes externos (Leaflet/MINSAL).
 self.addEventListener('fetch', (event) => {
   if (!event.request.url.startsWith(self.location.origin)) return;
 

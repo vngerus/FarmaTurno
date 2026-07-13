@@ -12,35 +12,69 @@ const {
 } = Astro.props;
 
 const isDev = import.meta.env.DEV;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url.origin).href;
+const ogImageURL = new URL('/og-image.png', Astro.site || Astro.url.origin).href;
 ---
 <!doctype html>
 <html lang="es-CL" class="scroll-smooth">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="canonical" href={canonicalURL} />
+		
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
+		<link rel="apple-touch-icon" href="/icon-192.png" />
 		<meta name="theme-color" content="#0f1f19" />
 		<meta name="color-scheme" content="light" />
 		<link rel="manifest" href="/manifest.json" />
-		<link rel="apple-touch-icon" href="/icon-192.png" />
 		
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<meta name="keywords" content="farmacias de turno, farmacias chile, botiquin chile, minsal, isp, farmacias de guardia, medicamentos chile, buscar farmacia" />
+		<meta name="author" content="FarmaTurno Chile" />
 		<meta name="robots" content="index, follow" />
 		
 		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImageURL} />
+		<meta property="og:image:alt" content="Logotipo de FarmaTurno Chile - Farmacias de Turno en Emergencias" />
+		<meta property="og:site_name" content="FarmaTurno Chile" />
+		<meta property="og:locale" content="es_CL" />
 		
 		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={ogImageURL} />
+		<meta property="twitter:image:alt" content="Logotipo de FarmaTurno Chile - Farmacias de Turno en Emergencias" />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+		<script type="application/ld+json" is:inline>
+			{
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				"name": "FarmaTurno Chile",
+				"alternateName": "FarmaTurno",
+				"url": "https://farmaturno.cl",
+				"description": "Buscador instantáneo de farmacias de turno en todo Chile con mapas integrados, geolocalización y control de medicamentos.",
+				"potentialAction": {
+					"@type": "SearchAction",
+					"target": {
+						"@type": "EntryPoint",
+						"urlTemplate": "https://farmaturno.cl/mapa-turnos?q={search_term_string}"
+					},
+					"query-input": "required name=search_term_string"
+				}
+			}
+		</script>
 	</head>
 	<body class="bg-[#faf9f4] text-[#0f1f19] font-sans antialiased min-h-screen flex flex-col selection:bg-[#e8632c] selection:text-white">
 		<slot />
