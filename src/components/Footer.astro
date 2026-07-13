@@ -1,5 +1,5 @@
 ---
-import { Phone } from 'lucide-astro';
+import { Phone, Github, Coffee } from 'lucide-astro';
 const currentYear = new Date().getFullYear();
 ---
 
@@ -69,19 +69,9 @@ const currentYear = new Date().getFullYear();
         </h4>
         <p class="text-xs leading-relaxed">
           Los datos de farmacias de turno son obtenidos en tiempo real del endpoint público oficial
-          de la Subsecretaría de Redes Asistenciales, Ministerio de Salud de Chile (MINSAL).
+          de la Subsecretaría de Redes Asistenciales, Ministerio de Salud de Chile (MINSAL). El
+          catálogo de medicamentos proviene del Instituto de Salud Pública (ISP) y CENABAST.
         </p>
-        <div class="flex flex-wrap gap-2 mt-4">
-          <span class="px-2 py-0.5 bg-white border border-[#0f1f19] rounded text-[10px] font-mono"
-            >Astro 5+</span
-          >
-          <span class="px-2 py-0.5 bg-white border border-[#0f1f19] rounded text-[10px] font-mono"
-            >React 19</span
-          >
-          <span class="px-2 py-0.5 bg-white border border-[#0f1f19] rounded text-[10px] font-mono"
-            >Tailwind v4</span
-          >
-        </div>
       </div>
     </div>
 
@@ -96,7 +86,24 @@ const currentYear = new Date().getFullYear();
         >
           Política de Privacidad
         </a>
-        <p>Entorno de Evaluación</p>
+        <a
+          href="https://github.com/sponsors/vngerus"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-1.5 font-mono uppercase tracking-wide hover:text-[#065f46] transition-colors"
+          title="GitHub Sponsors"
+        >
+          <Github class="w-3.5 h-3.5" /> Sponsor
+        </a>
+        <a
+          href="https://ko-fi.com/vngerus"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-1.5 font-mono uppercase tracking-wide hover:text-[#065f46] transition-colors"
+          title="Ko-fi"
+        >
+          <Coffee class="w-3.5 h-3.5" /> Ko-fi
+        </a>
       </div>
     </div>
   </div>

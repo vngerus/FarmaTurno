@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { Ambulance, Search, Pill, ShieldCheck } from 'lucide-astro';
+import { Ambulance, Search, Pill, ShieldCheck, FileSearch } from 'lucide-astro';
 ---
 
 <Layout title="FarmaTurno Chile - Farmacias de Turno en Emergencias">
@@ -52,6 +52,9 @@ import { Ambulance, Search, Pill, ShieldCheck } from 'lucide-astro';
             <a href="/mi-botiquin" class="btn-secondary">
               <Pill class="w-4 h-4 text-peach-500" /> Mi Botiquín
             </a>
+            <a href="/comparador-medicamentos" class="btn-secondary">
+              <FileSearch class="w-4 h-4 text-mint-600" /> Buscar Medicamentos
+            </a>
           </div>
         </div>
 
@@ -70,25 +73,25 @@ import { Ambulance, Search, Pill, ShieldCheck } from 'lucide-astro';
                 <div
                   class="text-[10px] text-brand-body uppercase tracking-wider font-bold font-mono"
                 >
-                  Datos Oficiales (MINSAL)
+                  Fuentes Oficiales (MINSAL + ISP)
                 </div>
               </div>
             </div>
 
             <div class="space-y-2 mt-auto">
               <p class="text-xs text-white/90 font-medium italic">
-                "Excelente herramienta para encontrar la farmacia de turno más cercana en Santiago y
-                controlar mis remedios."
+                "Encuentra farmacias de turno cerca de ti, controla tu botiquín y consulta
+                información referencial de medicamentos — todo en un solo lugar."
               </p>
               <div class="flex items-center gap-2">
                 <div
                   class="w-8 h-8 rounded-full bg-[#0f1f19] flex items-center justify-center font-bold text-xs text-white font-mono"
                 >
-                  US
+                  FT
                 </div>
                 <div>
-                  <div class="text-[11px] font-bold text-white">Usuario Registrado</div>
-                  <div class="text-[9px] text-mint-100">Santiago, Chile</div>
+                  <div class="text-[11px] font-bold text-white">Proyecto Académico</div>
+                  <div class="text-[9px] text-mint-100">INACAP · Unidad 3, SPA con React</div>
                 </div>
               </div>
             </div>

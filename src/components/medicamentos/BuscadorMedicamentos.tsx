@@ -1,8 +1,11 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { Search, RefreshCw, AlertCircle } from 'lucide-react';
 import TarjetaFicha from './TarjetaFicha';
 import { buscarMedicamentos } from '../../services/medicamentosCatalogo.service';
 import type { ResultadoBusquedaMedicamento } from '../../types/medicamentos-catalogo.types';
+
+const DEBOUNCE_MS = 300;
+const MAX_SUGERENCIAS = 6;
 
 export default function BuscadorMedicamentos() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -10,21 +13,28 @@ export default function BuscadorMedicamentos() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [hasSearched, setHasSearched] = useState(false);
-  const abortRef = useRef<AbortController | null>(null);
+
+  const [suggestions, setSuggestions] = useState<ResultadoBusquedaMedicamento[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
+  const searchAbortRef = useRef<AbortController | null>(null);
+  const suggestAbortRef = useRef<AbortController | null>(null);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleSearch = useCallback(async (term: string) => {
     setError(null);
+    setShowSuggestions(false);
 
     if (term.trim().length < 2) {
-      abortRef.current?.abort();
+      searchAbortRef.current?.abort();
       setResults([]);
       setHasSearched(false);
       return;
     }
 
-    abortRef.current?.abort();
+    searchAbortRef.current?.abort();
     const controller = new AbortController();
-    abortRef.current = controller;
+    searchAbortRef.current = controller;
 
     setLoading(true);
     setHasSearched(true);
@@ -42,14 +52,55 @@ export default function BuscadorMedicamentos() {
     }
   }, []);
 
+  // Autocompletado: sugerencias mientras se escribe, con debounce
+  useEffect(() => {
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+
+    const term = searchTerm.trim();
+    if (term.length < 2) {
+      suggestAbortRef.current?.abort();
+      setSuggestions([]);
+      setShowSuggestions(false);
+      return;
+    }
+
+    debounceRef.current = setTimeout(async () => {
+      suggestAbortRef.current?.abort();
+      const controller = new AbortController();
+      suggestAbortRef.current = controller;
+
+      try {
+        const data = await buscarMedicamentos(term, controller.signal);
+        setSuggestions(Array.isArray(data) ? data.slice(0, MAX_SUGERENCIAS) : []);
+        setShowSuggestions(true);
+      } catch (err) {
+        if (controller.signal.aborted) return;
+        // Fallo silencioso: el autocompletado es una ayuda, no crítico
+        setSuggestions([]);
+      }
+    }, DEBOUNCE_MS);
+
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+    };
+  }, [searchTerm]);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleSearch(searchTerm);
   };
 
+  const handleSelectSuggestion = (nombreProducto: string) => {
+    setSearchTerm(nombreProducto);
+    setShowSuggestions(false);
+    handleSearch(nombreProducto);
+  };
+
   const handleClear = () => {
     setSearchTerm('');
     setResults([]);
+    setSuggestions([]);
+    setShowSuggestions(false);
     setHasSearched(false);
     setError(null);
   };
@@ -71,12 +122,39 @@ export default function BuscadorMedicamentos() {
             type="text"
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
+            onFocus={() => suggestions.length > 0 && setShowSuggestions(true)}
+            onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
             placeholder="Ej: Paracetamol, Ibuprofen, Amoxicilina..."
             className="glass-input w-full px-4 py-3 md:py-4 text-sm md:text-base rounded-xl pl-12"
             aria-label="Buscar medicamentos"
+            aria-autocomplete="list"
+            aria-expanded={showSuggestions}
+            autoComplete="off"
             disabled={loading}
           />
           <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none" />
+
+          {showSuggestions && suggestions.length > 0 && (
+            <ul className="absolute z-20 top-full mt-2 w-full bg-white border-2 border-[#0f1f19] rounded-xl shadow-lg overflow-hidden">
+              {suggestions.map((s, idx) => (
+                <li key={`${s.registroIsp}-${idx}`}>
+                  <button
+                    type="button"
+                    onMouseDown={e => e.preventDefault()}
+                    onClick={() => handleSelectSuggestion(s.nombreProducto)}
+                    className="w-full text-left px-4 py-2.5 hover:bg-mint-50 transition-colors flex flex-col gap-0.5 border-b border-slate-100 last:border-b-0"
+                  >
+                    <span className="text-sm font-semibold text-slate-800">
+                      {s.nombreProducto}
+                    </span>
+                    <span className="text-xs text-slate-500 font-mono">
+                      {s.principioActivo}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         <div className="flex gap-3 flex-wrap">
