@@ -79,12 +79,12 @@ PUBLIC_SUPABASE_PUBLISHABLE_KEY=
 
 > solo para auth
 
-## Contribuciones
+## Contribuciones y Desarrollo Colaborativo
 
-Proyecto licenciado bajo **MIT** — abierto a que cualquiera lo use, modifique o aprenda de él. Si quieres aportar (corregir un bug, agregar fichas de medicamentos, mejorar algo):
+Proyecto licenciado bajo **MIT** — abierto a que cualquiera lo use, modifique o aprenda de él. Si quieres aportar (corregir un bug, mejorar la interfaz, agregar funciones):
 
-1. Haz un fork y crea una rama descriptiva (`fix/...`, `feat/...`)
-2. Abre un Pull Request explicando el cambio y por qué
-3. Para cambios grandes, abre un Issue primero para discutirlo
+1. Lee nuestra [Guía de Contribución](CONTRIBUTING.md) para conocer las pautas de estilo de código, la convención de ramas y el flujo de desarrollo local.
+2. Verifica que tus cambios compilen con éxito en tu entorno local ejecutando `pnpm run build`.
+3. Al abrir un Pull Request, completa la información requerida mediante la plantilla predeterminada del repositorio. Todos los cambios enviados hacia `main` serán evaluados automáticamente por nuestro flujo de Integración Continua (CI).
 
-Al ser un trabajo académico, no hay compromiso de mantenimiento activo ni tiempos de respuesta garantizados — pero toda contribución que mejore el proyecto es bienvenida.
+Al ser un trabajo académico, no hay compromiso de mantenimiento activo ni tiempos de respuesta garantizados — pero toda contribución constructiva que mejore el proyecto es bienvenida.
