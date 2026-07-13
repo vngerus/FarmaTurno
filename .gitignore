@@ -40,6 +40,4 @@ scripts/*
 .claude
 .kiro
 
-# data 
-.data
-data
+/data
