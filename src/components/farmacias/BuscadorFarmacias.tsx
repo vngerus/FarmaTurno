@@ -6,8 +6,13 @@ import ListaFarmacias from './ListaFarmacias';
 import { calcularDistanciaKm } from '../../utils/distancia';
 import { obtenerUbicacion } from '../../utils/geolocation';
 import { supabase } from '../../lib/supabaseClient';
-import { obtenerUsuarioCompleto, actualizarZonaFavorita, alternarFavoritoFarmacia } from '../../services/perfil.service';
-import type { Farmacia, User } from '../../types';
+import {
+  obtenerUsuarioCompleto,
+  actualizarZonaFavorita,
+  alternarFavoritoFarmacia,
+} from '../../services/perfil.service';
+import type { Farmacia } from '../../types/farmacias.types';
+import type { User } from '../../types/auth.types';
 
 const COORDS_CACHE_KEY = 'farmaturno_user_coords_cache';
 const COORDS_CACHE_TTL_MS = 10 * 60 * 1000;
@@ -27,8 +32,7 @@ function leerCoordsCache(): [number, number] | null {
 function guardarCoordsCache(coords: [number, number]) {
   try {
     sessionStorage.setItem(COORDS_CACHE_KEY, JSON.stringify({ coords, timestamp: Date.now() }));
-  } catch {
-  }
+  } catch {}
 }
 
 export default function BuscadorFarmacias() {
@@ -43,7 +47,7 @@ export default function BuscadorFarmacias() {
     selectedComuna,
     setSelectedComuna,
     searchQuery,
-    setSearchQuery
+    setSearchQuery,
   } = useFarmacias();
 
   const [activeUser, setActiveUser] = useState<User | null>(null);
@@ -60,21 +64,20 @@ export default function BuscadorFarmacias() {
 
   useEffect(() => {
     import('./MapaFarmacias')
-      .then((mod) => setMapaComponent(() => mod.default))
-      .catch((err) => console.error('Error cargando MapaFarmacias:', err));
+      .then(mod => setMapaComponent(() => mod.default))
+      .catch(err => console.error('Error cargando MapaFarmacias:', err));
 
     const cachedCoords = leerCoordsCache();
     if (cachedCoords) {
       setUserCoords(cachedCoords);
     } else {
       obtenerUbicacion()
-        .then((coords) => {
+        .then(coords => {
           setUserCoords(coords);
           guardarCoordsCache(coords);
         })
-        .catch((err) => console.warn('Geolocalización automática no disponible:', err.message));
+        .catch(err => console.warn('Geolocalización automática no disponible:', err.message));
     }
-
   }, []);
 
   useEffect(() => {
@@ -86,7 +89,9 @@ export default function BuscadorFarmacias() {
         if (user.favoriteRegion) {
           setSelectedRegion(user.favoriteRegion);
           setTimeout(() => {
-            window.dispatchEvent(new CustomEvent('load-favorite-comuna', { detail: user.favoriteComuna }));
+            window.dispatchEvent(
+              new CustomEvent('load-favorite-comuna', { detail: user.favoriteComuna }),
+            );
           }, 400);
         }
       } catch (e) {
@@ -98,7 +103,9 @@ export default function BuscadorFarmacias() {
       if (session?.user?.email) cargarUsuario(session.user.id, session.user.email);
     });
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
       if (session?.user?.email) {
         cargarUsuario(session.user.id, session.user.email);
       } else {
@@ -181,20 +188,21 @@ export default function BuscadorFarmacias() {
   };
 
   return (
-    <div className="w-full bg-white border-2 border-[#0f1f19] rounded-[1.5rem] p-6 md:p-8 space-y-6">
-
+    <div className="w-full bg-white border-2 border-[#0f1f19] rounded-3xl p-6 md:p-8 space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b-2 border-[#0f1f19] pb-6">
         <div>
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[#0f1f19] font-heading">
             Buscador de Farmacias de Turno
           </h2>
-          <p className="text-[#33443d] text-sm mt-1 font-medium">
+          <p className="text-brand-body text-sm mt-1 font-medium">
             Información oficial del MINSAL con filtros inteligentes y trazado de rutas.
           </p>
         </div>
         <div className="flex items-center gap-2">
           <span className="inline-flex w-2.5 h-2.5 rounded-full bg-[#065f46] animate-pulse"></span>
-          <span className="text-xs text-[#065f46] font-mono font-bold uppercase tracking-wider">SERVICIO ACTIVO</span>
+          <span className="text-xs text-[#065f46] font-mono font-bold uppercase tracking-wider">
+            SERVICIO ACTIVO
+          </span>
         </div>
       </div>
 
@@ -214,7 +222,9 @@ export default function BuscadorFarmacias() {
       {loading && (
         <div className="flex flex-col items-center justify-center py-20 gap-3">
           <RefreshCw className="w-10 h-10 text-mint-600 animate-spin" />
-          <p className="text-slate-500 text-sm font-semibold animate-pulse">Consultando turnos en tiempo real...</p>
+          <p className="text-slate-500 text-sm font-semibold animate-pulse">
+            Consultando turnos en tiempo real...
+          </p>
         </div>
       )}
 
@@ -226,7 +236,6 @@ export default function BuscadorFarmacias() {
 
       {!loading && !error && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
           <div className="lg:col-span-5 flex flex-col gap-4">
             <div className="flex justify-between items-center text-xs font-bold text-slate-500 uppercase tracking-wider">
               <span>Farmacias de Turno en Comuna</span>
@@ -244,7 +253,7 @@ export default function BuscadorFarmacias() {
             />
           </div>
 
-          <div id="map-container" className="lg:col-span-7 flex flex-col gap-4 min-h-[400px]">
+          <div id="map-container" className="lg:col-span-7 flex flex-col gap-4 min-h-100">
             <div className="flex justify-between items-center text-xs font-bold text-slate-500 uppercase tracking-wider">
               <span className="flex items-center gap-1.5">
                 <Map className="w-4 h-4 text-mint-600" />
@@ -268,13 +277,12 @@ export default function BuscadorFarmacias() {
                 onLocateUser={handleLocateUser}
               />
             ) : (
-              <div className="flex flex-col items-center justify-center h-[400px] bg-slate-50 border border-slate-200 rounded-2xl text-slate-500 text-center animate-pulse">
+              <div className="flex flex-col items-center justify-center h-100 bg-slate-50 border border-slate-200 rounded-2xl text-slate-500 text-center animate-pulse">
                 <RefreshCw className="w-8 h-8 text-slate-400 animate-spin mb-2" />
                 <p className="text-sm font-semibold">Iniciando mapa interactivo...</p>
               </div>
             )}
           </div>
-
         </div>
       )}
     </div>

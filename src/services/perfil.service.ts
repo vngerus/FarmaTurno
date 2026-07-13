@@ -1,5 +1,5 @@
 import { supabase } from '../lib/supabaseClient';
-import type { User } from '../types';
+import type { User } from '../types/auth.types';
 
 export async function obtenerUsuarioCompleto(userId: string, email: string): Promise<User> {
   const [{ data: profile, error: profileError }, { data: favoritos, error: favoritosError }] = await Promise.all([

@@ -2,32 +2,47 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { Ambulance, Search, Pill, ShieldCheck } from 'lucide-astro';
+import { Ambulance, Search, Pill, ShieldCheck, FileSearch } from 'lucide-astro';
 ---
 
 <Layout title="FarmaTurno Chile - Farmacias de Turno en Emergencias">
   <Header />
 
-  <main class="flex-grow container mx-auto px-4 py-8 md:py-12 space-y-12">
-    
+  <main class="grow container mx-auto px-4 py-8 md:py-12 space-y-12">
     <section class="scroll-mt-20">
-      <div class="card-surface p-8 md:p-12 relative overflow-hidden md:flex md:items-center md:justify-between gap-8">
-        <div class="absolute inset-0 pointer-events-none" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 44px, rgba(15,31,25,.05) 44px, rgba(15,31,25,.05) 46px), repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(15,31,25,.04) 60px, rgba(15,31,25,.04) 62px);"></div>
+      <div
+        class="card-surface p-8 md:p-12 relative overflow-hidden md:flex md:items-center md:justify-between gap-8"
+      >
+        <div
+          class="absolute inset-0 pointer-events-none"
+          style="background-image: repeating-linear-gradient(0deg, transparent, transparent 44px, rgba(15,31,25,.05) 44px, rgba(15,31,25,.05) 46px), repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(15,31,25,.04) 60px, rgba(15,31,25,.04) 62px);"
+        >
+        </div>
 
         <div class="md:w-1/2 space-y-6 z-10 relative">
-          <div class="inline-flex items-center gap-2 pl-1.5 pr-3 py-1.5 rounded-full bg-[#faf9f4] border-2 border-[#0f1f19] text-[11px] font-bold font-mono text-[#0f1f19] uppercase tracking-wider">
-            <span class="bg-[#065f46] text-white rounded-full p-1 flex items-center justify-center shrink-0">
+          <div
+            class="inline-flex items-center gap-2 pl-1.5 pr-3 py-1.5 rounded-full bg-[#faf9f4] border-2 border-[#0f1f19] text-[11px] font-bold font-mono text-[#0f1f19] uppercase tracking-wider"
+          >
+            <span
+              class="bg-[#065f46] text-white rounded-full p-1 flex items-center justify-center shrink-0"
+            >
               <Ambulance class="w-3 h-3" />
             </span>
             Emergencias y Turnos de Salud
           </div>
 
-          <h1 class="text-3xl md:text-5xl font-black tracking-tight text-slate-900 leading-[1.1] font-heading">
-            Tu Salud No Espera.<br /><span class="bg-gradient-to-r from-mint-600 to-mint-500 bg-clip-text text-transparent">Encuentra Farmacias de Turno.</span>
+          <h1
+            class="text-3xl md:text-5xl font-black tracking-tight text-slate-900 leading-[1.1] font-heading"
+          >
+            Tu Salud No Espera.<br /><span
+              class="bg-linear-to-r from-mint-600 to-mint-500 bg-clip-text text-transparent"
+              >Encuentra Farmacias de Turno.</span
+            >
           </h1>
 
           <p class="text-slate-500 text-sm md:text-base max-w-lg leading-relaxed font-semibold">
-            Buscador instantáneo en todo Chile con mapas integrados, trazado de comunas, geolocalización y control de stock de medicamentos en tu botiquín personal.
+            Buscador instantáneo en todo Chile con mapas integrados, trazado de comunas,
+            geolocalización y control de stock de medicamentos en tu botiquín personal.
           </p>
 
           <div class="flex flex-wrap items-center gap-4 pt-2">
@@ -37,32 +52,46 @@ import { Ambulance, Search, Pill, ShieldCheck } from 'lucide-astro';
             <a href="/mi-botiquin" class="btn-secondary">
               <Pill class="w-4 h-4 text-peach-500" /> Mi Botiquín
             </a>
+            <a href="/comparador-medicamentos" class="btn-secondary">
+              <FileSearch class="w-4 h-4 text-mint-600" /> Buscar Medicamentos
+            </a>
           </div>
         </div>
 
         <div class="hidden md:block md:w-[42%] relative z-10">
-          <div class="bg-[#065f46] rounded-2xl p-6 relative overflow-hidden border-2 border-[#0f1f19] min-h-[260px] flex flex-col justify-between shadow-[6px_6px_0_#0f1f19]">
-            <div class="bg-[#faf9f4] border-2 border-[#0f1f19] rounded-xl p-4 max-w-[200px] flex items-center gap-2">
+          <div
+            class="bg-[#065f46] rounded-2xl p-6 relative overflow-hidden border-2 border-[#0f1f19] min-h-65 flex flex-col justify-between shadow-[6px_6px_0_#0f1f19]"
+          >
+            <div
+              class="bg-[#faf9f4] border-2 border-[#0f1f19] rounded-xl p-4 max-w-50 flex items-center gap-2"
+            >
               <span class="bg-[#e8632c] text-white rounded-lg p-1.5 shrink-0">
                 <ShieldCheck class="w-4 h-4" />
               </span>
               <div>
                 <div class="text-2xl font-bold text-[#0f1f19] font-heading">100%</div>
-                <div class="text-[10px] text-[#33443d] uppercase tracking-wider font-bold font-mono">Datos Oficiales (MINSAL)</div>
+                <div
+                  class="text-[10px] text-brand-body uppercase tracking-wider font-bold font-mono"
+                >
+                  Fuentes Oficiales (MINSAL + ISP)
+                </div>
               </div>
             </div>
 
             <div class="space-y-2 mt-auto">
               <p class="text-xs text-white/90 font-medium italic">
-                "Excelente herramienta para encontrar la farmacia de turno más cercana en Santiago y controlar mis remedios."
+                "Encuentra farmacias de turno cerca de ti, controla tu botiquín y consulta
+                información referencial de medicamentos — todo en un solo lugar."
               </p>
               <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-full bg-[#0f1f19] flex items-center justify-center font-bold text-xs text-white font-mono">
-                  US
+                <div
+                  class="w-8 h-8 rounded-full bg-[#0f1f19] flex items-center justify-center font-bold text-xs text-white font-mono"
+                >
+                  FT
                 </div>
                 <div>
-                  <div class="text-[11px] font-bold text-white">Usuario Registrado</div>
-                  <div class="text-[9px] text-mint-100">Santiago, Chile</div>
+                  <div class="text-[11px] font-bold text-white">Proyecto Académico</div>
+                  <div class="text-[9px] text-mint-100">INACAP · Unidad 3, SPA con React</div>
                 </div>
               </div>
             </div>
@@ -70,7 +99,6 @@ import { Ambulance, Search, Pill, ShieldCheck } from 'lucide-astro';
         </div>
       </div>
     </section>
-
   </main>
 
   <Footer />

@@ -10,7 +10,8 @@ import {
   eliminarMedicamento,
   tomarDosisMedicamento,
 } from '../../services/medicamentos.service';
-import type { Medicamento, User } from '../../types';
+import type { Medicamento } from '../../types/medicamentos.types';
+import type { User } from '../../types/auth.types';
 
 interface BotiquinCRUDProps {
   user: User;

@@ -2,30 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { FlaskConical } from 'lucide-astro';
+import BuscadorMedicamentos from '../components/medicamentos/BuscadorMedicamentos';
 ---
 
 <Layout
-  title="Comparador de Medicamentos - FarmaTurno Chile"
-  description="Próximamente: compara precios y presentaciones de medicamentos entre farmacias."
+  title="Buscador de Medicamentos - FarmaTurno Chile"
+  description="Busca medicamentos en nuestro catálogo y consulta sus fichas técnicas detalladas."
 >
   <Header />
 
-  <main class="grow container mx-auto px-4 py-16 flex items-center justify-center">
-    <div class="card-surface p-10 md:p-14 text-center max-w-lg">
-      <div
-        class="bg-mint-50 border border-mint-100 w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5"
-      >
-        <FlaskConical class="w-6 h-6 text-mint-600" />
-      </div>
-      <h1 class="text-2xl md:text-3xl font-black tracking-tight text-slate-900 font-heading mb-3">
-        Comparador de Medicamentos
-      </h1>
-      <p class="text-slate-500 text-sm md:text-base leading-relaxed">
-        Estamos trabajando en esta funcionalidad. Muy pronto podrás comparar precios y
-        presentaciones de medicamentos entre distintas farmacias.
-      </p>
-    </div>
+  <main class="grow container mx-auto px-4 py-8 md:py-12">
+    <BuscadorMedicamentos client:load />
   </main>
 
   <Footer />

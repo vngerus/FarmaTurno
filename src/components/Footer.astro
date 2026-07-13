@@ -1,28 +1,26 @@
 ---
-import { Phone } from 'lucide-astro';
+import { Phone, Github, Coffee } from 'lucide-astro';
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="w-full bg-[#f2efe4] border-t-2 border-[#0f1f19] mt-auto py-12 text-[#33443d]">
+<footer class="w-full bg-[#f2efe4] border-t-2 border-[#0f1f19] mt-auto py-12 text-brand-body">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
       <div>
         <div class="flex items-center gap-2 mb-4">
-          <div class="bg-[#065f46] p-1.5 rounded-lg">
-            <svg
-              class="w-4 h-4 text-[#faf9f4]"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M19 10.5V20a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-9.5a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4Z"
-              ></path>
-            </svg>
-          </div>
+          <svg
+            class="w-8 h-8 shrink-0"
+            viewBox="0 0 64 64"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect x="10" y="10" width="52" height="52" rx="12" fill="#0f1f19" />
+            <rect x="6" y="6" width="52" height="52" rx="12" fill="#065f46" stroke="#0f1f19" stroke-width="3.5" />
+            <rect x="24" y="15" width="16" height="4" rx="1.5" fill="#faf9f4" stroke="#0f1f19" stroke-width="2.5" />
+            <rect x="27" y="19" width="10" height="4" fill="#faf9f4" stroke="#0f1f19" stroke-width="2.5" />
+            <rect x="18" y="23" width="28" height="26" rx="6" fill="#faf9f4" stroke="#0f1f19" stroke-width="3" />
+            <path d="M26 36H38M32 30V42" stroke="#e8632c" stroke-width="4.5" stroke-linecap="round" />
+          </svg>
           <span class="font-bold text-[#0f1f19] font-heading">FarmaTurno Chile</span>
         </div>
         <p class="text-xs leading-relaxed max-w-sm">
@@ -69,19 +67,9 @@ const currentYear = new Date().getFullYear();
         </h4>
         <p class="text-xs leading-relaxed">
           Los datos de farmacias de turno son obtenidos en tiempo real del endpoint público oficial
-          de la Subsecretaría de Redes Asistenciales, Ministerio de Salud de Chile (MINSAL).
+          de la Subsecretaría de Redes Asistenciales, Ministerio de Salud de Chile (MINSAL). El
+          catálogo de medicamentos proviene del Instituto de Salud Pública (ISP) y CENABAST.
         </p>
-        <div class="flex flex-wrap gap-2 mt-4">
-          <span class="px-2 py-0.5 bg-white border border-[#0f1f19] rounded text-[10px] font-mono"
-            >Astro 5+</span
-          >
-          <span class="px-2 py-0.5 bg-white border border-[#0f1f19] rounded text-[10px] font-mono"
-            >React 19</span
-          >
-          <span class="px-2 py-0.5 bg-white border border-[#0f1f19] rounded text-[10px] font-mono"
-            >Tailwind v4</span
-          >
-        </div>
       </div>
     </div>
 
@@ -96,7 +84,24 @@ const currentYear = new Date().getFullYear();
         >
           Política de Privacidad
         </a>
-        <p>Entorno de Evaluación</p>
+        <a
+          href="https://github.com/sponsors/vngerus"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-1.5 font-mono uppercase tracking-wide hover:text-[#065f46] transition-colors"
+          title="GitHub Sponsors"
+        >
+          <Github class="w-3.5 h-3.5" /> Sponsor
+        </a>
+        <a
+          href="https://ko-fi.com/vngerus"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-1.5 font-mono uppercase tracking-wide hover:text-[#065f46] transition-colors"
+          title="Ko-fi"
+        >
+          <Coffee class="w-3.5 h-3.5" /> Ko-fi
+        </a>
       </div>
     </div>
   </div>

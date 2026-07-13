@@ -3,7 +3,7 @@ import UserMenu from './UserMenu';
 import LoginModal from './LoginModal';
 import { supabase } from '../../lib/supabaseClient';
 import { obtenerUsuarioCompleto } from '../../services/perfil.service';
-import type { User } from '../../types';
+import type { User } from '../../types/auth.types';
 
 export default function HeaderAuth() {
   const [activeUser, setActiveUser] = useState<User | null>(null);

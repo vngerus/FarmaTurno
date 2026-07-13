@@ -1,6 +1,7 @@
 import React from 'react';
 import { Filter, Search, Star } from 'lucide-react';
-import type { RegionOption, ComunaOption, User } from '../../types';
+import type { RegionOption, ComunaOption } from '../../types/regiones.types';
+import type { User } from '../../types/auth.types';
 
 interface FiltrosBuscadorProps {
   regiones: RegionOption[];

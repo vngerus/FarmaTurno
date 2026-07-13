@@ -3,24 +3,26 @@ import { MapContainer, TileLayer, Marker, Popup, useMap, Rectangle, Polyline } f
 import L from 'leaflet';
 import { Navigation, Clock, Phone, Map } from 'lucide-react';
 import { obtenerUbicacion } from '../../utils/geolocation';
-import type { Farmacia } from '../../types';
+import type { Farmacia } from '../../types/farmacias.types';
 
-const getEmeraldMarker = () => L.divIcon({
-  className: 'custom-div-icon',
-  html: `
+const getEmeraldMarker = () =>
+  L.divIcon({
+    className: 'custom-div-icon',
+    html: `
     <div class="relative flex items-center justify-center w-8 h-8">
       <div class="absolute w-6 h-6 rounded-full bg-[#065f46]/30 animate-ping"></div>
       <div class="relative w-4 h-4 bg-[#065f46] border-2 border-[#0f1f19] rounded-full"></div>
     </div>
   `,
-  iconSize: [32, 32],
-  iconAnchor: [16, 16],
-  popupAnchor: [0, -10]
-});
+    iconSize: [32, 32],
+    iconAnchor: [16, 16],
+    popupAnchor: [0, -10],
+  });
 
-const getUserMarker = () => L.divIcon({
-  className: 'custom-user-icon',
-  html: `
+const getUserMarker = () =>
+  L.divIcon({
+    className: 'custom-user-icon',
+    html: `
     <div class="relative flex items-center justify-center w-10 h-10">
       <div class="absolute w-8 h-8 rounded-full bg-[#2563eb]/30 animate-pulse"></div>
       <div class="relative w-5 h-5 bg-[#2563eb] border-2 border-[#0f1f19] rounded-full flex items-center justify-center">
@@ -28,10 +30,10 @@ const getUserMarker = () => L.divIcon({
       </div>
     </div>
   `,
-  iconSize: [40, 40],
-  iconAnchor: [20, 20],
-  popupAnchor: [0, -10]
-});
+    iconSize: [40, 40],
+    iconAnchor: [20, 20],
+    popupAnchor: [0, -10],
+  });
 
 function ChangeView({ center }: { center: [number, number] }) {
   const map = useMap();
@@ -52,16 +54,20 @@ export default function MapaFarmacias({
   farmacias,
   selectedFarmaciaId,
   userCoords,
-  onLocateUser
+  onLocateUser,
 }: MapaFarmaciasProps) {
   const [isLocating, setIsLocating] = useState<boolean>(false);
 
   const farmaciasConMapa = farmacias.filter(
-    f => f.local_lat && f.local_lng && !isNaN(parseFloat(f.local_lat)) && !isNaN(parseFloat(f.local_lng))
+    f =>
+      f.local_lat &&
+      f.local_lng &&
+      !isNaN(parseFloat(f.local_lat)) &&
+      !isNaN(parseFloat(f.local_lng)),
   );
 
   const selectedFarmacia = farmaciasConMapa.find(f => f.local_id === selectedFarmaciaId);
-  
+
   const mapCenter = React.useMemo<[number, number]>(() => {
     if (selectedFarmacia) {
       return [parseFloat(selectedFarmacia.local_lat), parseFloat(selectedFarmacia.local_lng)];
@@ -98,13 +104,13 @@ export default function MapaFarmacias({
     if (minLat === maxLat) {
       return [
         [minLat - paddingLat, minLng - paddingLng],
-        [maxLat + paddingLat, maxLng + paddingLng]
+        [maxLat + paddingLat, maxLng + paddingLng],
       ];
     }
 
     return [
       [minLat - paddingLat, minLng - paddingLng],
-      [maxLat + paddingLat, maxLng + paddingLng]
+      [maxLat + paddingLat, maxLng + paddingLng],
     ];
   }, [farmaciasConMapa]);
 
@@ -118,20 +124,21 @@ export default function MapaFarmacias({
   const handleLocateMe = () => {
     setIsLocating(true);
     obtenerUbicacion()
-      .then((coords) => {
+      .then(coords => {
         onLocateUser(coords);
         setIsLocating(false);
       })
-      .catch((error) => {
-        console.error("Error obteniendo ubicación:", error);
-        alert("No se pudo obtener tu ubicación actual. Asegúrate de otorgar permisos de ubicación en el navegador.");
+      .catch(error => {
+        console.error('Error obteniendo ubicación:', error);
+        alert(
+          'No se pudo obtener tu ubicación actual. Asegúrate de otorgar permisos de ubicación en el navegador.',
+        );
         setIsLocating(false);
       });
   };
 
   return (
-    <div className="relative isolate w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden border-2 border-[#0f1f19]">
-
+    <div className="relative isolate w-full h-100 md:h-[500px] rounded-2xl overflow-hidden border-2 border-[#0f1f19]">
       <button
         onClick={handleLocateMe}
         disabled={isLocating}
@@ -159,28 +166,23 @@ export default function MapaFarmacias({
         )}
       </div>
 
-      <MapContainer 
-        center={mapCenter} 
-        zoom={13} 
-        scrollWheelZoom={true}
-        className="w-full h-full"
-      >
+      <MapContainer center={mapCenter} zoom={13} scrollWheelZoom={true} className="w-full h-full">
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        
+
         <ChangeView center={mapCenter} />
 
         {comunaBounds && (
-          <Rectangle 
-            bounds={comunaBounds} 
+          <Rectangle
+            bounds={comunaBounds}
             pathOptions={{
               color: '#065f46',
               weight: 1.5,
               fillColor: '#065f46',
               fillOpacity: 0.04,
-              dashArray: '6, 12'
+              dashArray: '6, 12',
             }}
           />
         )}
@@ -193,7 +195,7 @@ export default function MapaFarmacias({
               weight: 3,
               dashArray: '5, 8',
               lineCap: 'round',
-              opacity: 0.8
+              opacity: 0.8,
             }}
           />
         )}
@@ -213,23 +215,25 @@ export default function MapaFarmacias({
           const lng = parseFloat(farmacia.local_lng);
 
           return (
-            <Marker 
-              key={farmacia.local_id} 
-              position={[lat, lng]} 
-              icon={getEmeraldMarker()}
-            >
+            <Marker key={farmacia.local_id} position={[lat, lng]} icon={getEmeraldMarker()}>
               <Popup>
-                <div className="p-1 max-w-[200px]">
+                <div className="p-1 max-w-50">
                   <h4 className="font-bold text-[#0f1f19] text-sm leading-tight mb-1">
                     {farmacia.local_nombre.toUpperCase()}
                   </h4>
-                  <p className="text-[#33443d] text-xs mb-1 font-medium">
+                  <p className="text-brand-body text-xs mb-1 font-medium">
                     {farmacia.local_direccion}
                   </p>
 
                   <div className="flex flex-col gap-0.5 text-[11px] text-[#065f46] mt-2 font-mono">
-                    <div className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> Apertura: {farmacia.funcionamiento_hora_apertura.slice(0, 5)} hrs.</div>
-                    <div className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> Cierre: {farmacia.funcionamiento_hora_cierre.slice(0, 5)} hrs.</div>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5" /> Apertura:{' '}
+                      {farmacia.funcionamiento_hora_apertura.slice(0, 5)} hrs.
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5" /> Cierre:{' '}
+                      {farmacia.funcionamiento_hora_cierre.slice(0, 5)} hrs.
+                    </div>
                   </div>
 
                   {farmacia.local_telefono && (
@@ -237,7 +241,8 @@ export default function MapaFarmacias({
                       href={`tel:${farmacia.local_telefono.replace(/\s+/g, '')}`}
                       className="inline-flex items-center gap-1 text-[11px] text-[#065f46] hover:text-[#e8632c] mt-2 font-medium transition-colors"
                     >
-                      <Phone className="w-3.5 h-3.5 inline mr-1" /> Llamar: {farmacia.local_telefono}
+                      <Phone className="w-3.5 h-3.5 inline mr-1" /> Llamar:{' '}
+                      {farmacia.local_telefono}
                     </a>
                   )}
 

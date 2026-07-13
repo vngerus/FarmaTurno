@@ -3,7 +3,7 @@ import { Lock, UserPlus } from 'lucide-react';
 import BotiquinCRUD from './BotiquinCRUD';
 import { supabase } from '../../lib/supabaseClient';
 import { obtenerUsuarioCompleto } from '../../services/perfil.service';
-import type { User } from '../../types';
+import type { User } from '../../types/auth.types';
 
 export default function BotiquinGate() {
   const [activeUser, setActiveUser] = useState<User | null>(null);
@@ -29,7 +29,9 @@ export default function BotiquinGate() {
       }
     });
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
       if (session?.user?.email) {
         cargarUsuario(session.user.id, session.user.email);
       } else {
@@ -52,8 +54,9 @@ export default function BotiquinGate() {
         <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-[#0f1f19] font-heading mb-3">
           Mi Botiquín es privado
         </h1>
-        <p className="text-[#33443d] text-sm md:text-base leading-relaxed mb-6">
-          Inicia sesión para ver y gestionar tu botiquín personal. Usa el botón "Iniciar Sesión" en la parte superior de la página.
+        <p className="text-brand-body text-sm md:text-base leading-relaxed mb-6">
+          Inicia sesión para ver y gestionar tu botiquín personal. Usa el botón "Iniciar Sesión" en
+          la parte superior de la página.
         </p>
         <div className="inline-flex items-center gap-2 text-xs font-bold font-mono uppercase text-[#065f46]">
           <UserPlus className="w-4 h-4" />

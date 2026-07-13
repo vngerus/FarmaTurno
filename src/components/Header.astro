@@ -7,37 +7,45 @@ const navLinkClass = (path: string) =>
   `text-xs md:text-sm font-bold font-mono uppercase tracking-wide transition-colors pb-1 border-b-2 ${
     isActive(path)
       ? 'text-[#0f1f19] border-[#e8632c]'
-      : 'text-[#33443d] hover:text-[#0f1f19] border-transparent'
+      : 'text-brand-body hover:text-[#0f1f19] border-transparent'
   }`;
 ---
+
 <header class="sticky top-0 z-40 w-full bg-[#faf9f4] border-b-2 border-[#0f1f19]">
   <div class="container mx-auto px-4 py-4 flex items-center justify-between">
     <a href="/" class="flex items-center gap-2.5 group">
-      <div class="bg-[#065f46] p-2.5 rounded-lg group-hover:scale-105 transition-all">
-        <svg class="w-5 h-5 text-[#faf9f4]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19 10.5V20a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-9.5a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4Z" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 14h6m-3-3v6" />
-        </svg>
-      </div>
+      <svg
+        class="w-10 h-10 group-hover:scale-105 transition-all shrink-0"
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect x="10" y="10" width="52" height="52" rx="12" fill="#0f1f19" />
+        <rect x="6" y="6" width="52" height="52" rx="12" fill="#065f46" stroke="#0f1f19" stroke-width="3.5" />
+        <rect x="24" y="15" width="16" height="4" rx="1.5" fill="#faf9f4" stroke="#0f1f19" stroke-width="2.5" />
+        <rect x="27" y="19" width="10" height="4" fill="#faf9f4" stroke="#0f1f19" stroke-width="2.5" />
+        <rect x="18" y="23" width="28" height="26" rx="6" fill="#faf9f4" stroke="#0f1f19" stroke-width="3" />
+        <path d="M26 36H38M32 30V42" stroke="#e8632c" stroke-width="4.5" stroke-linecap="round" />
+      </svg>
       <div>
-        <span class="font-bold text-lg md:text-xl tracking-tight text-[#0f1f19] font-heading uppercase">
+        <span
+          class="font-bold text-lg md:text-xl tracking-tight text-[#0f1f19] font-heading uppercase"
+        >
           Farma<span class="text-[#065f46]">Turno</span>
         </span>
-        <span class="hidden sm:inline-block ml-1.5 px-2 py-0.5 bg-[#0f1f19] text-[10px] text-[#faf9f4] rounded-md font-mono font-semibold tracking-wider uppercase">
+        <span
+          class="hidden sm:inline-block ml-1.5 px-2 py-0.5 bg-[#0f1f19] text-[10px] text-[#faf9f4] rounded-md font-mono font-semibold tracking-wider uppercase"
+        >
           Chile
         </span>
       </div>
     </a>
 
     <nav class="flex items-center gap-4 md:gap-6">
-      <a href="/" class={navLinkClass('/')}>
-        Inicio
-      </a>
-      <a href="/mapa-turnos" class={navLinkClass('/mapa-turnos')}>
-        Mapa de Turnos
-      </a>
+      <a href="/" class={navLinkClass('/')}> Inicio </a>
+      <a href="/mapa-turnos" class={navLinkClass('/mapa-turnos')}> Mapa de Turnos </a>
       <a href="/comparador-medicamentos" class={navLinkClass('/comparador-medicamentos')}>
-        Comparador
+        Medicamentos
       </a>
 
       <HeaderAuth client:load />
@@ -48,7 +56,9 @@ const navLinkClass = (path: string) =>
         title="Llamar a Ambulancia SAMU"
       >
         <svg class="w-3.5 h-3.5 text-[#e8632c]" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44a1 1 0 0 1-.95 0l-7.9-4.44a1 1 0 0 1-.53-.88V7.5c0-.38.21-.71.53-.88l7.9-4.44a1 1 0 0 1 .95 0l7.9 4.44c.32.17.53.5.53.88v9z"/>
+          <path
+            d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44a1 1 0 0 1-.95 0l-7.9-4.44a1 1 0 0 1-.53-.88V7.5c0-.38.21-.71.53-.88l7.9-4.44a1 1 0 0 1 .95 0l7.9 4.44c.32.17.53.5.53.88v9z"
+          ></path>
         </svg>
         SAMU: 131
       </a>
