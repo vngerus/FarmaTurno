@@ -8,6 +8,10 @@ on:
     branches:
       - main
 
+env:
+  PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
+  PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.PUBLIC_SUPABASE_PUBLISHABLE_KEY }}
+
 jobs:
   build:
     name: Verify Build Compilation
