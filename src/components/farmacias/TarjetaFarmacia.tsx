@@ -22,9 +22,18 @@ export default function TarjetaFarmacia({
 
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${farmacia.local_lat},${farmacia.local_lng}`;
 
+  const handleSelect = () => {
+    onSelect();
+    window.posthog?.capture('pharmacy_selected', {
+      local_id: farmacia.local_id,
+      local_nombre: farmacia.local_nombre,
+      comuna_nombre: farmacia.comuna_nombre,
+    });
+  };
+
   return (
     <div
-      onClick={onSelect}
+      onClick={handleSelect}
       className={`flex flex-col p-5 glass-card rounded-2xl cursor-pointer group ${
         isSelected ? 'is-selected ring-1 ring-mint-500/20' : ''
       }`}
@@ -91,7 +100,7 @@ export default function TarjetaFarmacia({
         <button
           onClick={e => {
             e.stopPropagation();
-            onSelect();
+            handleSelect();
           }}
           className="py-2 px-3 bg-slate-50 border border-slate-200 hover:border-mint-500/30 text-slate-700 hover:text-mint-600 rounded-xl text-[11px] font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
         >
@@ -103,7 +112,14 @@ export default function TarjetaFarmacia({
           href={directionsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={e => e.stopPropagation()}
+          onClick={e => {
+            e.stopPropagation();
+            window.posthog?.capture('pharmacy_directions_opened', {
+              local_id: farmacia.local_id,
+              local_nombre: farmacia.local_nombre,
+              comuna_nombre: farmacia.comuna_nombre,
+            });
+          }}
           className="py-2 px-3 bg-mint-50 hover:bg-mint-600 text-mint-600 hover:text-white border border-mint-100 hover:border-transparent rounded-xl text-[11px] font-bold flex items-center justify-center gap-1.5 transition-all"
         >
           <ExternalLink className="w-3.5 h-3.5" />

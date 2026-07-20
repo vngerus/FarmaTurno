@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import PostHog from '../components/posthog.astro';
 
 interface Props {
 	title?: string;
@@ -33,6 +34,7 @@ const ogImageURL = new URL('/og-image.png', Astro.site || Astro.url.origin).href
 		
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<PostHog />
 		<meta name="keywords" content="farmacias de turno, farmacias chile, botiquin chile, minsal, isp, farmacias de guardia, medicamentos chile, buscar farmacia" />
 		<meta name="author" content="FarmaTurno Chile" />
 		<meta name="robots" content="index, follow" />

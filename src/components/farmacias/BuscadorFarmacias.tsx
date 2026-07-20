@@ -136,6 +136,7 @@ export default function BuscadorFarmacias() {
     try {
       await actualizarZonaFavorita(activeUser.id, regionId, comunaName);
       setActiveUser({ ...activeUser, favoriteRegion: regionId, favoriteComuna: comunaName });
+      window.posthog?.capture('favorite_zone_saved', { region_id: regionId, comuna_name: comunaName });
     } catch (e) {
       console.error('Error guardando zona favorita:', e);
       alert('No se pudo guardar tu zona favorita.');
@@ -152,9 +153,27 @@ export default function BuscadorFarmacias() {
         ? activeUser.favoritePharmacies.filter(id => id !== localId)
         : [...activeUser.favoritePharmacies, localId];
       setActiveUser({ ...activeUser, favoritePharmacies });
+      window.posthog?.capture('pharmacy_favorited', {
+        local_id: localId,
+        action: esFavorito ? 'removed' : 'added',
+      });
     } catch (e) {
       console.error('Error actualizando favoritos:', e);
       alert('No se pudo actualizar tus favoritos.');
+    }
+  };
+
+  const handleRegionChange = (regionId: string) => {
+    setSelectedRegion(regionId);
+    if (regionId) {
+      window.posthog?.capture('pharmacy_searched', { filter_type: 'region', region_id: regionId });
+    }
+  };
+
+  const handleComunaChange = (comunaId: string) => {
+    setSelectedComuna(comunaId);
+    if (comunaId) {
+      window.posthog?.capture('pharmacy_searched', { filter_type: 'comuna', comuna_id: comunaId });
     }
   };
 
@@ -213,8 +232,8 @@ export default function BuscadorFarmacias() {
         selectedComuna={selectedComuna}
         searchQuery={searchQuery}
         activeUser={activeUser}
-        onRegionChange={setSelectedRegion}
-        onComunaChange={setSelectedComuna}
+        onRegionChange={handleRegionChange}
+        onComunaChange={handleComunaChange}
         onSearchChange={setSearchQuery}
         onSaveFavoriteZone={handleSaveFavoriteZone}
       />

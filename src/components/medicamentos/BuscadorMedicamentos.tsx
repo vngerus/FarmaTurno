@@ -41,10 +41,15 @@ export default function BuscadorMedicamentos() {
 
     try {
       const data = await buscarMedicamentos(term, controller.signal);
-      setResults(Array.isArray(data) ? data : []);
+      const resultados = Array.isArray(data) ? data : [];
+      setResults(resultados);
+      window.posthog?.capture('medication_searched', {
+        result_count: resultados.length,
+      });
     } catch (err) {
       if (controller.signal.aborted) return;
       console.error('Error buscando medicamentos:', err);
+      window.posthog?.captureException(err instanceof Error ? err : new Error(String(err)));
       setError('No se pudo completar la búsqueda. Por favor, intenta de nuevo.');
       setResults([]);
     } finally {

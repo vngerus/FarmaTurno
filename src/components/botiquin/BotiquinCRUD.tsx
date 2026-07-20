@@ -57,13 +57,22 @@ export default function BotiquinCRUD({ user }: BotiquinCRUDProps) {
       if (editingMedicamento) {
         const actualizado = await actualizarMedicamento(editingMedicamento.id, medData);
         setMedicamentos(prev => prev.map(m => (m.id === actualizado.id ? actualizado : m)));
+        window.posthog?.capture('medication_updated', {
+          stock_actual: medData.stockActual,
+          stock_maximo: medData.stockMaximo,
+        });
       } else {
         const nuevo = await crearMedicamento(user.id, medData);
         setMedicamentos(prev => [nuevo, ...prev]);
+        window.posthog?.capture('medication_added', {
+          stock_actual: medData.stockActual,
+          stock_maximo: medData.stockMaximo,
+        });
       }
       setIsFormOpen(false);
     } catch (err) {
       console.error('Error guardando medicamento:', err);
+      window.posthog?.captureException(err instanceof Error ? err : new Error(String(err)));
       alert('No se pudo guardar el medicamento. Inténtalo de nuevo.');
     }
   };
@@ -75,8 +84,12 @@ export default function BotiquinCRUD({ user }: BotiquinCRUDProps) {
     try {
       const actualizado = await tomarDosisMedicamento(id, medicamento.stockActual);
       setMedicamentos(prev => prev.map(m => (m.id === id ? actualizado : m)));
+      window.posthog?.capture('dose_taken', {
+        stock_remaining: actualizado.stockActual,
+      });
     } catch (err) {
       console.error('Error registrando la toma de dosis:', err);
+      window.posthog?.captureException(err instanceof Error ? err : new Error(String(err)));
       alert('No se pudo actualizar el stock. Inténtalo de nuevo.');
     }
   };
@@ -86,8 +99,10 @@ export default function BotiquinCRUD({ user }: BotiquinCRUDProps) {
     try {
       await eliminarMedicamento(deletingId);
       setMedicamentos(prev => prev.filter(m => m.id !== deletingId));
+      window.posthog?.capture('medication_deleted');
     } catch (err) {
       console.error('Error eliminando medicamento:', err);
+      window.posthog?.captureException(err instanceof Error ? err : new Error(String(err)));
       alert('No se pudo eliminar el medicamento. Inténtalo de nuevo.');
     } finally {
       setDeletingId(null);

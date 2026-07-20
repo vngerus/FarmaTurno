@@ -70,18 +70,31 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginMod
           setLoading(false);
           return;
         }
+
+        if (data.user) {
+          window.posthog?.identify(data.user.id, { username: cleanUsername });
+          window.posthog?.capture('user_signed_up');
+        }
       } else {
-        const { error: signInError } = await supabase.auth.signInWithPassword({
+        const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
           email: cleanEmail,
           password: cleanPassword,
         });
         if (signInError) throw signInError;
+
+        if (signInData.user) {
+          window.posthog?.identify(signInData.user.id, {
+            username: signInData.user.user_metadata?.username,
+          });
+          window.posthog?.capture('user_logged_in');
+        }
       }
 
       onLoginSuccess();
       onClose();
     } catch (err) {
       console.error('Error durante autenticación:', err);
+      window.posthog?.captureException(err instanceof Error ? err : new Error(String(err)));
       setError(traducirErrorAuth(err instanceof Error ? err.message : undefined));
     } finally {
       setLoading(false);

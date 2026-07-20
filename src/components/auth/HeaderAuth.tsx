@@ -35,7 +35,9 @@ export default function HeaderAuth() {
   }, []);
 
   const handleLogout = () => {
+    window.posthog?.capture('user_logged_out');
     supabase.auth.signOut();
+    window.posthog?.reset();
   };
 
   return (
