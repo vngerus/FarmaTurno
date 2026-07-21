@@ -27,7 +27,9 @@ if (!respuesta.ok) {
 }
 const regiones = await respuesta.json();
 
-// Correcciones para typos conocidos en el dataset upstream (jromerof/regiones-chile)
+// Correcciones para typos conocidos en el dataset upstream (jromerof/regiones-chile).
+// Las claves son las strings tal como vienen HOY del upstream. Si al regenerar el
+// dataset una entrada ya no matchea, es buena señal: el upstream corrigió su typo.
 const CORRECCIONES_REGION = {
   'La Araucania': 'La Araucanía',
   'Los Rios': 'Los Ríos',
