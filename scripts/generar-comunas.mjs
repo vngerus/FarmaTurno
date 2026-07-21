@@ -31,6 +31,7 @@ const regiones = await respuesta.json();
 const CORRECCIONES_REGION = {
   'La Araucania': 'La Araucanía',
   'Los Rios': 'Los Ríos',
+  'Aysén del General Carlos Ibañez': 'Aysén del General Carlos Ibáñez',
 };
 
 const CORRECCIONES_COMUNA = {
