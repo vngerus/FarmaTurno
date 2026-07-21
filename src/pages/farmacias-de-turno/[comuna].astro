@@ -1,0 +1,108 @@
+---
+// src/pages/farmacias-de-turno/[comuna].astro
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ListadoFarmaciasComuna from '../../components/farmacias/ListadoFarmaciasComuna';
+import comunas from '../../data/comunas-chile.json';
+
+export function getStaticPaths() {
+  return comunas.map(({ comuna, slug, region }) => ({
+    params: { comuna: slug },
+    props: { comunaNombre: comuna, region },
+  }));
+}
+
+const { comunaNombre, region } = Astro.props;
+
+const title = `Farmacia de Turno en ${comunaNombre} Hoy | FarmaTurno Chile`;
+const description = `Encuentra la farmacia de turno en ${comunaNombre} hoy: dirección, horario y teléfono actualizados desde MINSAL. Consulta gratis, sin registro.`;
+
+const faq = [
+  {
+    pregunta: `¿Cómo sé qué farmacia está de turno en ${comunaNombre}?`,
+    respuesta: `FarmaTurno consulta en vivo los datos oficiales de MINSAL y muestra la farmacia de turno vigente en ${comunaNombre}, con dirección y horario actualizados.`,
+  },
+  {
+    pregunta: '¿Las farmacias de turno cobran más caro?',
+    respuesta: 'No, las farmacias de turno mantienen los mismos precios que en horario normal. El sistema de turnos es una obligación legal para asegurar cobertura las 24 horas.',
+  },
+  {
+    pregunta: `¿Qué hago si no hay farmacia de turno en ${comunaNombre} ahora mismo?`,
+    respuesta: 'Los turnos rotan por calendario y no todas las comunas tienen turno todos los días. Revisa el mapa completo de FarmaTurno para ver la farmacia de turno más cercana en comunas vecinas.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(({ pregunta, respuesta }) => ({
+    '@type': 'Question',
+    name: pregunta,
+    acceptedAnswer: { '@type': 'Answer', text: respuesta },
+  })),
+};
+---
+
+<Layout title={title} description={description}>
+  <Header />
+
+  <main class="grow container mx-auto px-4 py-8 md:py-12 max-w-3xl">
+    <p class="text-xs font-bold font-mono uppercase tracking-widest text-[#065f46] mb-2">
+      {region}
+    </p>
+    <h1 class="text-3xl md:text-4xl font-black tracking-tight text-[#0f1f19] font-heading mb-4">
+      Farmacias de Turno en {comunaNombre}
+    </h1>
+    <p class="text-brand-body text-sm md:text-base leading-relaxed mb-8 max-w-2xl">
+      Encuentra al instante qué farmacia está de turno hoy en {comunaNombre}, con dirección,
+      horario y teléfono actualizados desde los datos oficiales de MINSAL.
+    </p>
+
+    <ListadoFarmaciasComuna comunaNombre={comunaNombre} client:load />
+
+    <div class="mt-10 pt-8 border-t-2 border-[#0f1f19]">
+      <h2 class="text-xs font-bold font-mono text-[#0f1f19] uppercase tracking-widest mb-4">
+        Teléfonos de Emergencia
+      </h2>
+      <ul class="space-y-2 text-xs font-mono text-brand-body">
+        <li>
+          <a href="tel:131" class="hover:text-[#065f46] transition-colors font-medium">
+            SAMU (Ambulancia): <strong>131</strong>
+          </a>
+        </li>
+        <li>
+          <a href="tel:133" class="hover:text-[#065f46] transition-colors font-medium">
+            Carabineros de Chile: <strong>133</strong>
+          </a>
+        </li>
+        <li>
+          <a href="tel:6003607777" class="hover:text-[#065f46] transition-colors font-medium">
+            Salud Responde (MINSAL): <strong>600 360 7777</strong>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="mt-10 pt-8 border-t-2 border-[#0f1f19]">
+      <h2 class="text-lg font-bold text-[#0f1f19] font-heading mb-4">Preguntas Frecuentes</h2>
+      <div class="space-y-4">
+        {faq.map(({ pregunta, respuesta }) => (
+          <div>
+            <p class="font-bold text-sm text-[#0f1f19]">{pregunta}</p>
+            <p class="text-sm text-brand-body leading-relaxed mt-1">{respuesta}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-8 flex flex-wrap gap-3 text-xs font-bold font-mono uppercase">
+      <a href="/mapa-turnos" class="text-[#065f46] underline">Ver mapa completo de turnos</a>
+      <a href="/farmacias-de-turno" class="text-[#065f46] underline">Ver todas las comunas</a>
+    </div>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <Footer />
+</Layout>
