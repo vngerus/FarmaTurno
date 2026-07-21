@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useSyncExternalStore } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import { obtenerUsuarioCompleto } from '../services/perfil.service';
 import type { User } from '../types/auth.types';
@@ -11,13 +11,17 @@ interface AuthStoreState {
   loading: boolean;
 }
 
-let globalState: AuthStoreState = {
+const SERVER_SNAPSHOT: AuthStoreState = {
   user: null,
   checked: false,
   loading: true,
 };
 
-// Intento de restauración sincrónica desde localStorage en el cliente (0ms delay)
+let globalState: AuthStoreState = SERVER_SNAPSHOT;
+
+// Restauración sincrónica desde localStorage en el cliente (0ms delay).
+// Solo se usa vía getSnapshot (post-hidratación); el server siempre ve SERVER_SNAPSHOT,
+// así el primer render del cliente matchea el HTML del servidor (sin error de hidratación #418).
 if (typeof window !== 'undefined') {
   try {
     const cached = localStorage.getItem(CACHE_KEY);
@@ -93,21 +97,24 @@ function initAuthStore() {
   });
 }
 
+function subscribe(listener: () => void) {
+  listeners.add(listener);
+  return () => listeners.delete(listener);
+}
+
+function getSnapshot() {
+  return globalState;
+}
+
+function getServerSnapshot() {
+  return SERVER_SNAPSHOT;
+}
+
 export function useAuth() {
-  const [state, setState] = useState<AuthStoreState>(globalState);
+  const state = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   useEffect(() => {
     initAuthStore();
-
-    const listener = () => setState(globalState);
-    listeners.add(listener);
-
-    // Sincronizar por si globalState cambió antes de añadir el listener
-    setState(globalState);
-
-    return () => {
-      listeners.delete(listener);
-    };
   }, []);
 
   const logout = async () => {

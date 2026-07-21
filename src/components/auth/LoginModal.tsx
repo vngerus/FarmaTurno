@@ -250,9 +250,16 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginMod
           </form>
         ) : (
           <form onSubmit={handleSubmit} className="p-5 space-y-4">
-            <div className="flex items-center gap-2 bg-mint-50/50 border border-mint-100/60 p-2.5 rounded-xl text-[10px] text-slate-600 font-semibold">
-              <Shield className="w-3.5 h-3.5 text-mint-600 shrink-0" />
-              <span>Tu cuenta y tus datos quedan protegidos con autenticación real (Supabase).</span>
+            <div className="bg-[#faf9f4] border-2 border-[#0f1f19] p-3.5 rounded-xl space-y-1.5 shadow-[2px_2px_0_#0f1f19]">
+              <div className="flex items-center gap-1.5">
+                <Shield className="w-3.5 h-3.5 text-[#065f46] shrink-0" />
+                <span className="px-2 py-0.5 bg-[#065f46] text-[#faf9f4] text-[9px] md:text-[10px] font-mono font-bold uppercase rounded-md tracking-wider">
+                  100% Fuentes Oficiales (MINSAL + ISP)
+                </span>
+              </div>
+              <p className="text-xs text-[#0f1f19] font-medium leading-relaxed">
+                Encuentra farmacias de turno cerca de ti, controla tu botiquín y consulta información referencial de medicamentos — todo en un solo lugar.
+              </p>
             </div>
 
             {error && (
