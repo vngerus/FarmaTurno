@@ -83,10 +83,10 @@ const navLinkClass = (path: string) =>
     </div>
   </div>
 
-  <nav id="mobile-menu-panel" class="hidden md:hidden border-t-2 border-[#0f1f19] bg-[#faf9f4] px-4 py-4 flex flex-col gap-3">
-    <a href="/" class={navLinkClass('/')}> Inicio </a>
-    <a href="/mapa-turnos" class={navLinkClass('/mapa-turnos')}> Mapa de Turnos </a>
-    <a href="/comparador-medicamentos" class={navLinkClass('/comparador-medicamentos')}>
+  <nav id="mobile-menu-panel" class="hidden md:hidden border-t-2 border-[#0f1f19] bg-[#faf9f4] px-4 py-4 flex flex-col gap-1">
+    <a href="/" class={`${navLinkClass('/')} block py-3 min-h-11`}> Inicio </a>
+    <a href="/mapa-turnos" class={`${navLinkClass('/mapa-turnos')} block py-3 min-h-11`}> Mapa de Turnos </a>
+    <a href="/comparador-medicamentos" class={`${navLinkClass('/comparador-medicamentos')} block py-3 min-h-11`}>
       Medicamentos
     </a>
     <a
