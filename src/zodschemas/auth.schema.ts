@@ -10,7 +10,11 @@ export const loginSchema = z.object({
 });
 
 export const registerSchema = loginSchema.extend({
-  username: z.string().trim().min(3, 'El nombre de usuario debe tener al menos 3 caracteres.'),
+  username: z
+    .string()
+    .trim()
+    .min(3, 'El nombre de usuario debe tener al menos 3 caracteres.')
+    .max(15, 'El nombre de usuario no puede tener más de 15 caracteres.'),
 });
 
 export type LoginFormData = z.infer<typeof loginSchema>;

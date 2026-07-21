@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PerfilGate from '../components/perfil/PerfilGate.tsx';
+---
+
+<Layout
+  title="Mi Perfil - FarmaTurno Chile"
+  description="Edita tus datos personales, cambia tu contraseña o elimina tu cuenta."
+>
+  <Header />
+
+  <main class="grow container mx-auto px-4 py-8 md:py-12">
+    <PerfilGate client:load />
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Lock, UserPlus } from 'lucide-react';
-import BotiquinCRUD from './BotiquinCRUD';
+import PerfilCRUD from './PerfilCRUD';
 import { useAuth } from '../../hooks/useAuth';
 
-export default function BotiquinGate() {
+export default function PerfilGate() {
   const { user, checked } = useAuth();
 
   if (!checked) return null;
@@ -15,20 +15,19 @@ export default function BotiquinGate() {
           <Lock className="w-6 h-6 text-[#065f46]" />
         </div>
         <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-[#0f1f19] font-heading mb-3">
-          Mi Botiquín es privado
+          Tu perfil es privado
         </h1>
         <p className="text-brand-body text-sm md:text-base leading-relaxed mb-6">
-          Inicia sesión para ver y gestionar tu botiquín personal. Usa el botón "Iniciar Sesión" en
-          la parte superior de la página.
+          Inicia sesión para ver y editar tu perfil. Usa el botón "Iniciar Sesión" en la parte
+          superior de la página.
         </p>
         <div className="inline-flex items-center gap-2 text-xs font-bold font-mono uppercase text-[#065f46]">
           <UserPlus className="w-4 h-4" />
-          Sin sesión, sin botiquín
+          Sin sesión, sin perfil
         </div>
       </div>
     );
   }
 
-  return <BotiquinCRUD user={user} />;
+  return <PerfilCRUD user={user} />;
 }
-

@@ -31,9 +31,8 @@ const actualizado = new Date().toLocaleDateString('es-CL', {
       <section>
         <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">1. Qué datos guardamos</h2>
         <p>
-          FarmaTurno Chile es un proyecto académico (Evaluación 3, INACAP). Tu cuenta y tus datos
-          sensibles se guardan en <strong>Supabase</strong>, una base de datos con autenticación
-          real, protegida con
+          Tu cuenta y tus datos sensibles se guardan en <strong>Supabase</strong>, una base de
+          datos con autenticación real, protegida con
           <strong>Row Level Security (RLS)</strong>: cada usuario solo puede leer y modificar sus
           propios datos, nunca los de otra cuenta. Guardamos:
         </p>
@@ -42,8 +41,8 @@ const actualizado = new Date().toLocaleDateString('es-CL', {
             Tu correo electrónico y contraseña (gestionados por Supabase Auth, la contraseña nunca
             se guarda en texto plano).
           </li>
-          <li>Tu nombre de usuario y tu región/comuna favorita.</li>
-          <li>Las farmacias que marcás como favoritas.</li>
+          <li>Tu nombre de usuario, nombre, apellido y tu región/comuna favorita.</li>
+          <li>Las farmacias que marcas como favoritas.</li>
           <li>
             Los medicamentos de tu botiquín personal (nombre, dosis, stock y horario de toma).
           </li>
@@ -70,18 +69,38 @@ const actualizado = new Date().toLocaleDateString('es-CL', {
         </h2>
         <p>
           Pedimos permiso de ubicación al navegador para centrar el mapa y ordenar las farmacias por
-          cercanía. Podés negar o revocar este permiso en cualquier momento desde la configuración
+          cercanía. Puedes negar o revocar este permiso en cualquier momento desde la configuración
           de tu navegador; la app sigue funcionando sin ubicación, solo sin distancia calculada.
         </p>
       </section>
 
       <section>
-        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">4. Terceros</h2>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">
+          4. Cookies y almacenamiento local
+        </h2>
+        <p>
+          No usamos cookies de rastreo ni de publicidad. Usamos el almacenamiento local de tu
+          navegador (<code>localStorage</code>/<code>sessionStorage</code>) para tres cosas: guardar
+          tu sesión de Supabase (para que no tengas que iniciar sesión cada vez), cachear
+          temporalmente (unos minutos) el listado de farmacias de turno para que la app cargue más
+          rápido, y recordar tu ubicación reciente durante la sesión de navegación. Ninguno de estos
+          datos se comparte con terceros ni se usa para rastrearte fuera de la aplicación.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">5. Terceros</h2>
         <p>
           Consultamos la API pública del MINSAL para obtener el listado de farmacias de turno, y
           usamos OpenStreetMap (vía Leaflet) para mostrar el mapa. Usamos Supabase como proveedor de
-          autenticación y base de datos. Ninguno de estos servicios recibe tus credenciales ni tu
-          botiquín salvo Supabase, que los almacena de forma segura y protegida por RLS.
+          autenticación y base de datos. Usamos Cloudflare Turnstile para verificar que quien se
+          registra o nos escribe por el formulario de contacto es una persona real, sin acceder a
+          tus datos personales. Usamos Upstash Redis para cachear temporalmente el listado de
+          farmacias de turno y limitar solicitudes abusivas — no guarda datos personales. Usamos
+          Resend para enviar los mensajes del formulario de contacto — solo procesa el nombre,
+          correo y mensaje que tú mismo escribes ahí, no tiene acceso al resto de tu cuenta. Ninguno
+          de estos servicios recibe tus credenciales ni tu botiquín salvo Supabase, que los almacena
+          de forma segura y protegida por RLS.
         </p>
         <p class="mt-2">
           El catálogo de medicamentos proviene de fuentes oficiales chilenas (Instituto de Salud
@@ -92,13 +111,81 @@ const actualizado = new Date().toLocaleDateString('es-CL', {
       </section>
 
       <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">6. Seguridad de los datos</h2>
+        <p>
+          Toda la comunicación entre tu navegador y nuestros servidores va cifrada (HTTPS). Tu
+          contraseña nunca se guarda en texto plano — Supabase Auth la almacena con un hash
+          criptográfico irreversible. El acceso a tus datos en la base de datos está restringido por
+          Row Level Security: ni siquiera un error de programación en la aplicación podría exponer
+          los datos de un usuario a otro, porque la restricción vive en la base de datos misma, no
+          solo en el código de la app.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">7. Tus derechos</h2>
+        <p>
+          De acuerdo con la Ley N° 19.628 sobre Protección de la Vida Privada, tienes derecho a
+          acceder, rectificar, cancelar u oponerte al tratamiento de tus datos personales. Puedes
+          ejercer estos derechos directamente desde tu cuenta:
+        </p>
+        <ul class="list-disc pl-6 mt-2 space-y-1">
+          <li>
+            <strong>Acceder y rectificar</strong> tus datos: desde
+            <a href="/perfil" class="text-[#065f46] font-bold hover:underline">tu perfil</a> puedes
+            ver y editar tu nombre, apellido, zona favorita y farmacias favoritas.
+          </li>
+          <li>
+            <strong>Cancelar</strong> tu cuenta y todos tus datos asociados: desde
+            <a href="/perfil" class="text-[#065f46] font-bold hover:underline">tu perfil</a>, sección
+            "Zona de peligro".
+          </li>
+          <li>
+            Para cualquier otra solicitud relacionada con tus datos, usa nuestro
+            <a href="/contacto" class="text-[#065f46] font-bold hover:underline">formulario de contacto</a>.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">8. Menores de edad</h2>
+        <p>
+          FarmaTurno Chile no está dirigido específicamente a menores de edad. Si eres menor de
+          edad, te recomendamos usar la aplicación con supervisión de un adulto responsable,
+          especialmente para la gestión del botiquín personal.
+        </p>
+      </section>
+
+      <section>
         <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">
-          5. Cómo eliminar tus datos
+          9. Cómo eliminar tus datos
         </h2>
         <p>
           Puedes eliminar tus medicamentos y favoritos en cualquier momento desde la propia
           aplicación. Si quieres eliminar tu cuenta por completo (perfil, botiquín y favoritos
-          asociados), escríbenos y la damos de baja de la base de datos.
+          asociados), puedes hacerlo de forma permanente y automática desde
+          <a href="/perfil" class="text-[#065f46] font-bold hover:underline">tu perfil</a>, sección
+          "Zona de peligro". Para otras consultas, usa nuestro
+          <a href="/contacto" class="text-[#065f46] font-bold hover:underline">formulario de contacto</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">10. Cambios a esta política</h2>
+        <p>
+          Podemos actualizar esta política ocasionalmente para reflejar cambios en la aplicación o
+          en la normativa vigente. Los cambios relevantes se reflejarán en la fecha de "Última
+          actualización" de esta página.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">11. Términos y Condiciones</h2>
+        <p>
+          Esta política se complementa con nuestros
+          <a href="/terminos-y-condiciones" class="text-[#065f46] font-bold hover:underline">
+            Términos y Condiciones
+          </a>.
         </p>
       </section>
     </div>

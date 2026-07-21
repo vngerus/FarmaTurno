@@ -41,7 +41,7 @@ const navLinkClass = (path: string) =>
       </div>
     </a>
 
-    <nav class="flex items-center gap-4 md:gap-6">
+    <nav class="hidden md:flex items-center gap-4 md:gap-6">
       <a href="/" class={navLinkClass('/')}> Inicio </a>
       <a href="/mapa-turnos" class={navLinkClass('/mapa-turnos')}> Mapa de Turnos </a>
       <a href="/comparador-medicamentos" class={navLinkClass('/comparador-medicamentos')}>
@@ -63,5 +63,58 @@ const navLinkClass = (path: string) =>
         SAMU: 131
       </a>
     </nav>
+
+    <div class="flex md:hidden items-center gap-3">
+      <HeaderAuth client:load />
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        class="p-2 border-2 border-[#0f1f19] rounded-lg text-[#0f1f19] cursor-pointer"
+      >
+        <svg id="mobile-menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="mobile-menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
   </div>
+
+  <nav id="mobile-menu-panel" class="hidden md:hidden border-t-2 border-[#0f1f19] bg-[#faf9f4] px-4 py-4 flex flex-col gap-3">
+    <a href="/" class={navLinkClass('/')}> Inicio </a>
+    <a href="/mapa-turnos" class={navLinkClass('/mapa-turnos')}> Mapa de Turnos </a>
+    <a href="/comparador-medicamentos" class={navLinkClass('/comparador-medicamentos')}>
+      Medicamentos
+    </a>
+    <a
+      href="tel:131"
+      class="inline-flex items-center gap-1.5 bg-[#0f1f19] text-[#faf9f4] text-[11px] font-bold font-mono px-3 py-1.5 rounded-lg transition-all hover:bg-[#e8632c] w-fit"
+      title="Llamar a Ambulancia SAMU"
+    >
+      <svg class="w-3.5 h-3.5 text-[#e8632c]" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44a1 1 0 0 1-.95 0l-7.9-4.44a1 1 0 0 1-.53-.88V7.5c0-.38.21-.71.53-.88l7.9-4.44a1 1 0 0 1 .95 0l7.9 4.44c.32.17.53.5.53.88v9z"
+        ></path>
+      </svg>
+      SAMU: 131
+    </a>
+  </nav>
 </header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const panel = document.getElementById('mobile-menu-panel');
+  const iconOpen = document.getElementById('mobile-menu-icon-open');
+  const iconClose = document.getElementById('mobile-menu-icon-close');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !panel?.classList.contains('hidden');
+    panel?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden');
+    iconClose?.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

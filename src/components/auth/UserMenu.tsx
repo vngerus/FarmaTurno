@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { User as UserIcon, LogOut, Heart, MapPin, UserCheck, Pill } from 'lucide-react';
+import { User as UserIcon, LogOut, Heart, MapPin, UserCheck, Pill, Settings } from 'lucide-react';
 import type { User } from '../../types/auth.types';
 
 interface UserMenuProps {
   user: User | null;
+  loading?: boolean;
   onLogout: () => void;
   onOpenLogin: () => void;
 }
 
-export default function UserMenu({ user, onLogout, onOpenLogin }: UserMenuProps) {
+export default function UserMenu({ user, loading, onLogout, onOpenLogin }: UserMenuProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  if (loading) {
+    return <div className="w-[140px] h-[38px] rounded-xl bg-slate-200/70 border-2 border-slate-300/50 animate-pulse" />;
+  }
 
   if (!user) {
     return (
@@ -27,10 +32,10 @@ export default function UserMenu({ user, onLogout, onOpenLogin }: UserMenuProps)
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex items-center gap-2 bg-[#faf9f4] hover:bg-white border-2 border-[#0f1f19] text-[#0f1f19] text-xs font-bold font-mono uppercase px-4 py-2.5 rounded-xl transition-all cursor-pointer"
+        className="inline-flex items-center gap-2 bg-[#faf9f4] hover:bg-white border-2 border-[#0f1f19] text-[#0f1f19] text-xs font-bold font-mono uppercase px-4 py-2.5 rounded-xl transition-all cursor-pointer max-w-40"
       >
-        <UserCheck className="w-4 h-4 text-[#065f46]" />
-        <span>Hola, {user.username}</span>
+        <UserCheck className="w-4 h-4 text-[#065f46] shrink-0" />
+        <span className="truncate">Hola, {user.username}</span>
       </button>
 
       {isOpen && (
@@ -47,6 +52,23 @@ export default function UserMenu({ user, onLogout, onOpenLogin }: UserMenuProps)
             </div>
 
             <div className="px-2 py-1.5 space-y-1">
+              <a
+                href="/perfil"
+                className="w-full flex items-center gap-2 px-3 py-2 text-xs text-[#0f1f19] hover:bg-[#faf9f4] rounded-lg transition-all font-bold"
+              >
+                <Settings className="w-3.5 h-3.5 text-[#065f46]" />
+                Mi Perfil
+              </a>
+              <a
+                href="/mi-botiquin"
+                className="w-full flex items-center gap-2 px-3 py-2 text-xs text-[#0f1f19] hover:bg-[#faf9f4] rounded-lg transition-all font-bold"
+              >
+                <Pill className="w-3.5 h-3.5 text-[#065f46]" />
+                Mi Botiquín
+              </a>
+            </div>
+
+            <div className="px-2 py-1.5 space-y-1">
               <div className="flex items-center gap-2 px-3 py-1.5 text-xs text-slate-600 font-semibold">
                 <MapPin className="w-3.5 h-3.5 text-mint-600 shrink-0" />
                 <span className="truncate">
@@ -57,16 +79,6 @@ export default function UserMenu({ user, onLogout, onOpenLogin }: UserMenuProps)
                 <Heart className="w-3.5 h-3.5 text-rose-500 shrink-0" />
                 <span>Favoritos: {user.favoritePharmacies?.length || 0} locales</span>
               </div>
-            </div>
-
-            <div className="px-2 py-1.5">
-              <a
-                href="/mi-botiquin"
-                className="w-full flex items-center gap-2 px-3 py-2 text-xs text-[#0f1f19] hover:bg-[#faf9f4] rounded-lg transition-all font-bold"
-              >
-                <Pill className="w-3.5 h-3.5 text-[#065f46]" />
-                Mi Botiquín
-              </a>
             </div>
 
             <div className="px-2 pt-1.5">

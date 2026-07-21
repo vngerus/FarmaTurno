@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const actualizado = new Date().toLocaleDateString('es-CL', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Layout
+  title="Sobre Nosotros - FarmaTurno Chile"
+  description="Qué es FarmaTurno Chile, para quién es y de dónde nace el proyecto."
+>
+  <Header />
+
+  <main class="grow container mx-auto px-4 py-10 md:py-16 max-w-3xl">
+    <div class="border-b-2 border-[#0f1f19] pb-6 mb-8">
+      <span class="font-mono text-[13.5px] font-bold text-[#e8632c] tracking-wide uppercase">Sobre Nosotros</span>
+      <h1 class="mt-1.5 font-heading font-bold text-3xl md:text-4xl tracking-tight text-[#0f1f19]">
+        Qué es FarmaTurno Chile
+      </h1>
+      <p class="mt-2 text-sm text-brand-body">Última actualización: {actualizado}</p>
+    </div>
+
+    <div class="space-y-8 text-[15px] leading-relaxed text-brand-body">
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">Qué hacemos</h2>
+        <p>
+          FarmaTurno Chile es un buscador de farmacias de turno a nivel nacional, con datos
+          obtenidos en tiempo real de fuentes oficiales del Ministerio de Salud de Chile (MINSAL).
+          Además, permite gestionar un botiquín personal (medicamentos, dosis y horarios de toma) y
+          consultar un catálogo referencial de medicamentos basado en información del Instituto de
+          Salud Pública (ISP) y CENABAST.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">Nuestra misión</h2>
+        <p>
+          Que encontrar una farmacia abierta a las tres de la mañana, o recordar si ya tomaste tu
+          medicamento del mediodía, no dependa de llamar por teléfono o de la memoria. Buscamos que
+          la información de salud pública que ya existe en Chile sea fácil de encontrar y usar desde
+          el celular, sin fricción y sin costo.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">Qué ofrecemos</h2>
+        <ul class="list-disc pl-6 mt-2 space-y-1">
+          <li>
+            <strong>Buscador de farmacias de turno:</strong> filtrable por región, comuna y nombre,
+            con mapa integrado, geolocalización y cálculo de distancia.
+          </li>
+          <li>
+            <strong>Mi Botiquín:</strong> gestor personal de medicamentos con dosis, stock y horario
+            de toma, protegido por cuenta con autenticación real.
+          </li>
+          <li>
+            <strong>Catálogo de medicamentos:</strong> búsqueda referencial basada en fuentes
+            oficiales chilenas (ISP/CENABAST).
+          </li>
+          <li>
+            <strong>Zona favorita:</strong> guarda tu región/comuna y farmacias favoritas para
+            encontrarlas más rápido la próxima vez.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">Para quién es</h2>
+        <p>
+          Para cualquier persona en Chile que necesite encontrar rápido una farmacia abierta fuera
+          de horario, o que quiera llevar un control simple de los medicamentos que toma — sin
+          necesidad de instalar nada, funciona desde el navegador.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">Nuestro compromiso con tus datos</h2>
+        <p>
+          Tu cuenta y tu botiquín son privados: cada usuario solo puede ver y modificar sus propios
+          datos, protegidos a nivel de base de datos (Row Level Security), no solo en el código de
+          la aplicación. No vendemos ni compartimos tus datos con terceros. Los detalles completos
+          están en nuestra
+          <a href="/politica-de-privacidad" class="text-[#065f46] font-bold hover:underline">
+            Política de Privacidad
+          </a>.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">Origen del proyecto</h2>
+        <p>
+          FarmaTurno Chile nació como evidencia evaluativa de la Unidad 3 de INACAP (desarrollo de
+          una SPA con React sobre Islas de Astro), y se sigue desarrollando más allá de esa entrega
+          académica original.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">¿Tienes sugerencias?</h2>
+        <p>
+          Este proyecto sigue creciendo. Si encontraste un error, tienes una idea o simplemente
+          quieres saludar, escríbenos desde nuestra
+          <a href="/contacto" class="text-[#065f46] font-bold hover:underline">página de contacto</a>.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

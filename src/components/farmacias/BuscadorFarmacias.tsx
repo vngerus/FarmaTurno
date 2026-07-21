@@ -5,9 +5,8 @@ import FiltrosBuscador from './FiltrosBuscador';
 import ListaFarmacias from './ListaFarmacias';
 import { calcularDistanciaKm } from '../../utils/distancia';
 import { obtenerUbicacion } from '../../utils/geolocation';
-import { supabase } from '../../lib/supabaseClient';
+import { useAuth } from '../../hooks/useAuth';
 import {
-  obtenerUsuarioCompleto,
   actualizarZonaFavorita,
   alternarFavoritoFarmacia,
 } from '../../services/perfil.service';
@@ -50,7 +49,7 @@ export default function BuscadorFarmacias() {
     setSearchQuery,
   } = useFarmacias();
 
-  const [activeUser, setActiveUser] = useState<User | null>(null);
+  const { user: activeUser, refreshUser } = useAuth();
 
   const [selectedFarmaciaId, setSelectedFarmaciaId] = useState<string | null>(null);
   const [userCoords, setUserCoords] = useState<[number, number] | null>(null);
@@ -81,40 +80,15 @@ export default function BuscadorFarmacias() {
   }, []);
 
   useEffect(() => {
-    const cargarUsuario = async (userId: string, email: string) => {
-      try {
-        const user = await obtenerUsuarioCompleto(userId, email);
-        setActiveUser(user);
-
-        if (user.favoriteRegion) {
-          setSelectedRegion(user.favoriteRegion);
-          setTimeout(() => {
-            window.dispatchEvent(
-              new CustomEvent('load-favorite-comuna', { detail: user.favoriteComuna }),
-            );
-          }, 400);
-        }
-      } catch (e) {
-        console.error('Error cargando sesión inicial:', e);
-      }
-    };
-
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session?.user?.email) cargarUsuario(session.user.id, session.user.email);
-    });
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (session?.user?.email) {
-        cargarUsuario(session.user.id, session.user.email);
-      } else {
-        setActiveUser(null);
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
+    if (activeUser?.favoriteRegion) {
+      setSelectedRegion(activeUser.favoriteRegion);
+      setTimeout(() => {
+        window.dispatchEvent(
+          new CustomEvent('load-favorite-comuna', { detail: activeUser.favoriteComuna }),
+        );
+      }, 400);
+    }
+  }, [activeUser?.favoriteRegion, activeUser?.favoriteComuna]);
 
   useEffect(() => {
     const handleRestoreComuna = (e: any) => {
@@ -130,12 +104,26 @@ export default function BuscadorFarmacias() {
     return () => window.removeEventListener('load-favorite-comuna', handleRestoreComuna);
   }, [comunas]);
 
+  const handleGoToFavoriteZone = () => {
+    if (!activeUser?.favoriteRegion) return;
+    setSelectedRegion(activeUser.favoriteRegion);
+    window.dispatchEvent(
+      new CustomEvent('load-favorite-comuna', { detail: activeUser.favoriteComuna }),
+    );
+  };
+
+  const handleResetFilters = () => {
+    setSelectedRegion('');
+    setSelectedComuna('');
+    setSearchQuery('');
+  };
+
   const handleSaveFavoriteZone = async (regionId: string, comunaId: string, comunaName: string) => {
     if (!activeUser) return;
 
     try {
       await actualizarZonaFavorita(activeUser.id, regionId, comunaName);
-      setActiveUser({ ...activeUser, favoriteRegion: regionId, favoriteComuna: comunaName });
+      await refreshUser();
     } catch (e) {
       console.error('Error guardando zona favorita:', e);
       alert('No se pudo guardar tu zona favorita.');
@@ -148,10 +136,7 @@ export default function BuscadorFarmacias() {
     const esFavorito = activeUser.favoritePharmacies.includes(localId);
     try {
       await alternarFavoritoFarmacia(activeUser.id, localId, esFavorito);
-      const favoritePharmacies = esFavorito
-        ? activeUser.favoritePharmacies.filter(id => id !== localId)
-        : [...activeUser.favoritePharmacies, localId];
-      setActiveUser({ ...activeUser, favoritePharmacies });
+      await refreshUser();
     } catch (e) {
       console.error('Error actualizando favoritos:', e);
       alert('No se pudo actualizar tus favoritos.');
@@ -217,6 +202,8 @@ export default function BuscadorFarmacias() {
         onComunaChange={setSelectedComuna}
         onSearchChange={setSearchQuery}
         onSaveFavoriteZone={handleSaveFavoriteZone}
+        onGoToFavoriteZone={handleGoToFavoriteZone}
+        onResetFilters={handleResetFilters}
       />
 
       {loading && (
@@ -277,7 +264,7 @@ export default function BuscadorFarmacias() {
                 onLocateUser={handleLocateUser}
               />
             ) : (
-              <div className="flex flex-col items-center justify-center h-100 bg-slate-50 border border-slate-200 rounded-2xl text-slate-500 text-center animate-pulse">
+              <div className="flex flex-col items-center justify-center h-100 md:h-[500px] bg-slate-50 border border-slate-200 rounded-2xl text-slate-500 text-center animate-pulse">
                 <RefreshCw className="w-8 h-8 text-slate-400 animate-spin mb-2" />
                 <p className="text-sm font-semibold">Iniciando mapa interactivo...</p>
               </div>
