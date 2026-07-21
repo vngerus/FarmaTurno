@@ -8,7 +8,14 @@ export async function obtenerFarmaciasMinsal(): Promise<Farmacia[]> {
   const timeoutId = setTimeout(() => controller.abort(), TIMEOUT_MS);
 
   try {
-    const response = await fetch(MINSAL_URL, { signal: controller.signal });
+    const response = await fetch(MINSAL_URL, {
+      signal: controller.signal,
+      headers: {
+        'User-Agent':
+          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+        Accept: 'application/json,*/*',
+      },
+    });
 
     if (!response.ok) {
       throw new Error(`MINSAL respondió con status ${response.status}`);
