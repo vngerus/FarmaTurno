@@ -1,0 +1,1732 @@
+[
+  {
+    "region": "Arica y Parinacota",
+    "comuna": "Arica",
+    "slug": "arica"
+  },
+  {
+    "region": "Arica y Parinacota",
+    "comuna": "Camarones",
+    "slug": "camarones"
+  },
+  {
+    "region": "Arica y Parinacota",
+    "comuna": "Putre",
+    "slug": "putre"
+  },
+  {
+    "region": "Arica y Parinacota",
+    "comuna": "General Lagos",
+    "slug": "general-lagos"
+  },
+  {
+    "region": "Tarapacá",
+    "comuna": "Iquique",
+    "slug": "iquique"
+  },
+  {
+    "region": "Tarapacá",
+    "comuna": "Alto Hospicio",
+    "slug": "alto-hospicio"
+  },
+  {
+    "region": "Tarapacá",
+    "comuna": "Pozo Almonte",
+    "slug": "pozo-almonte"
+  },
+  {
+    "region": "Tarapacá",
+    "comuna": "Camiña",
+    "slug": "camina"
+  },
+  {
+    "region": "Tarapacá",
+    "comuna": "Colchane",
+    "slug": "colchane"
+  },
+  {
+    "region": "Tarapacá",
+    "comuna": "Huara",
+    "slug": "huara"
+  },
+  {
+    "region": "Tarapacá",
+    "comuna": "Pica",
+    "slug": "pica"
+  },
+  {
+    "region": "Antofagasta",
+    "comuna": "Antofagasta",
+    "slug": "antofagasta"
+  },
+  {
+    "region": "Antofagasta",
+    "comuna": "Mejillones",
+    "slug": "mejillones"
+  },
+  {
+    "region": "Antofagasta",
+    "comuna": "Sierra Gorda",
+    "slug": "sierra-gorda"
+  },
+  {
+    "region": "Antofagasta",
+    "comuna": "Taltal",
+    "slug": "taltal"
+  },
+  {
+    "region": "Antofagasta",
+    "comuna": "Calama",
+    "slug": "calama"
+  },
+  {
+    "region": "Antofagasta",
+    "comuna": "Ollagüe",
+    "slug": "ollague"
+  },
+  {
+    "region": "Antofagasta",
+    "comuna": "San Pedro de Atacama",
+    "slug": "san-pedro-de-atacama"
+  },
+  {
+    "region": "Antofagasta",
+    "comuna": "Tocopilla",
+    "slug": "tocopilla"
+  },
+  {
+    "region": "Antofagasta",
+    "comuna": "María Elena",
+    "slug": "maria-elena"
+  },
+  {
+    "region": "Atacama",
+    "comuna": "Copiapó",
+    "slug": "copiapo"
+  },
+  {
+    "region": "Atacama",
+    "comuna": "Caldera",
+    "slug": "caldera"
+  },
+  {
+    "region": "Atacama",
+    "comuna": "Tierra Amarilla",
+    "slug": "tierra-amarilla"
+  },
+  {
+    "region": "Atacama",
+    "comuna": "Chañaral",
+    "slug": "chanaral"
+  },
+  {
+    "region": "Atacama",
+    "comuna": "Diego de Almagro",
+    "slug": "diego-de-almagro"
+  },
+  {
+    "region": "Atacama",
+    "comuna": "Vallenar",
+    "slug": "vallenar"
+  },
+  {
+    "region": "Atacama",
+    "comuna": "Alto del Carmen",
+    "slug": "alto-del-carmen"
+  },
+  {
+    "region": "Atacama",
+    "comuna": "Freirina",
+    "slug": "freirina"
+  },
+  {
+    "region": "Atacama",
+    "comuna": "Huasco",
+    "slug": "huasco"
+  },
+  {
+    "region": "Coquimbo",
+    "comuna": "La Serena",
+    "slug": "la-serena"
+  },
+  {
+    "region": "Coquimbo",
+    "comuna": "Coquimbo",
+    "slug": "coquimbo"
+  },
+  {
+    "region": "Coquimbo",
+    "comuna": "Andacollo",
+    "slug": "andacollo"
+  },
+  {
+    "region": "Coquimbo",
+    "comuna": "La Higuera",
+    "slug": "la-higuera"
+  },
+  {
+    "region": "Coquimbo",
+    "comuna": "Paihuano",
+    "slug": "paihuano"
+  },
+  {
+    "region": "Coquimbo",
+    "comuna": "Vicuña",
+    "slug": "vicuna"
+  },
+  {
+    "region": "Coquimbo",
+    "comuna": "Illapel",
+    "slug": "illapel"
+  },
+  {
+    "region": "Coquimbo",
+    "comuna": "Canela",
+    "slug": "canela"
+  },
+  {
+    "region": "Coquimbo",
+    "comuna": "Los Vilos",
+    "slug": "los-vilos"
+  },
+  {
+    "region": "Coquimbo",
+    "comuna": "Salamanca",
+    "slug": "salamanca"
+  },
+  {
+    "region": "Coquimbo",
+    "comuna": "Ovalle",
+    "slug": "ovalle"
+  },
+  {
+    "region": "Coquimbo",
+    "comuna": "Combarbalá",
+    "slug": "combarbala"
+  },
+  {
+    "region": "Coquimbo",
+    "comuna": "Monte Patria",
+    "slug": "monte-patria"
+  },
+  {
+    "region": "Coquimbo",
+    "comuna": "Punitaqui",
+    "slug": "punitaqui"
+  },
+  {
+    "region": "Coquimbo",
+    "comuna": "Río Hurtado",
+    "slug": "rio-hurtado"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Valparaíso",
+    "slug": "valparaiso"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Casablanca",
+    "slug": "casablanca"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Concón",
+    "slug": "concon"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Juan Fernández",
+    "slug": "juan-fernandez"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Puchuncaví",
+    "slug": "puchuncavi"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Quintero",
+    "slug": "quintero"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Viña del Mar",
+    "slug": "vina-del-mar"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Isla de Pascua",
+    "slug": "isla-de-pascua"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Los Andes",
+    "slug": "los-andes"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Calle Larga",
+    "slug": "calle-larga"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Rinconada",
+    "slug": "rinconada"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "San Esteban",
+    "slug": "san-esteban"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "La Ligua",
+    "slug": "la-ligua"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Cabildo",
+    "slug": "cabildo"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Papudo",
+    "slug": "papudo"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Petorca",
+    "slug": "petorca"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Zapallar",
+    "slug": "zapallar"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Quillota",
+    "slug": "quillota"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "La Calera",
+    "slug": "la-calera"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Hijuelas",
+    "slug": "hijuelas"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "La Cruz",
+    "slug": "la-cruz"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Nogales",
+    "slug": "nogales"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "San Antonio",
+    "slug": "san-antonio"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Algarrobo",
+    "slug": "algarrobo"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Cartagena",
+    "slug": "cartagena"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "El Quisco",
+    "slug": "el-quisco"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "El Tabo",
+    "slug": "el-tabo"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Santo Domingo",
+    "slug": "santo-domingo"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "San Felipe",
+    "slug": "san-felipe"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Catemu",
+    "slug": "catemu"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Llaillay",
+    "slug": "llaillay"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Panquehue",
+    "slug": "panquehue"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Putaendo",
+    "slug": "putaendo"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Santa María",
+    "slug": "santa-maria"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Quilpue",
+    "slug": "quilpue"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Limache",
+    "slug": "limache"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Olmué",
+    "slug": "olmue"
+  },
+  {
+    "region": "Valparaíso",
+    "comuna": "Villa Alemana",
+    "slug": "villa-alemana"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Santiago",
+    "slug": "santiago"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Cerrillos",
+    "slug": "cerrillos"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Cerro Navia",
+    "slug": "cerro-navia"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Conchalí",
+    "slug": "conchali"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "El Bosque",
+    "slug": "el-bosque"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Estación Central",
+    "slug": "estacion-central"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Huechuraba",
+    "slug": "huechuraba"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Independencia",
+    "slug": "independencia"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "La Cisterna",
+    "slug": "la-cisterna"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "La Florida",
+    "slug": "la-florida"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "La Granja",
+    "slug": "la-granja"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "La Pintana",
+    "slug": "la-pintana"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "La Reina",
+    "slug": "la-reina"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Las Condes",
+    "slug": "las-condes"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Lo Barnechea",
+    "slug": "lo-barnechea"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Lo Espejo",
+    "slug": "lo-espejo"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Lo Prado",
+    "slug": "lo-prado"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Macul",
+    "slug": "macul"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Maipú",
+    "slug": "maipu"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Ñuñoa",
+    "slug": "nunoa"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Pedro Aguirre Cerda",
+    "slug": "pedro-aguirre-cerda"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Peñalolen",
+    "slug": "penalolen"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Providencia",
+    "slug": "providencia"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Pudahuel",
+    "slug": "pudahuel"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Quilcura",
+    "slug": "quilcura"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Quinta Normal",
+    "slug": "quinta-normal"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Recoleta",
+    "slug": "recoleta"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Renca",
+    "slug": "renca"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "San Joaquín",
+    "slug": "san-joaquin"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "San Miguel",
+    "slug": "san-miguel"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "San Ramón",
+    "slug": "san-ramon"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Vitcarua",
+    "slug": "vitcarua"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Puente Alto",
+    "slug": "puente-alto"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Pirque",
+    "slug": "pirque"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "San José de Maipo",
+    "slug": "san-jose-de-maipo"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Colina",
+    "slug": "colina"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Lampa",
+    "slug": "lampa"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Til Til",
+    "slug": "til-til"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "San Bernardo",
+    "slug": "san-bernardo"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Buin",
+    "slug": "buin"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Calera de Tango",
+    "slug": "calera-de-tango"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Paine",
+    "slug": "paine"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Melipilla",
+    "slug": "melipilla"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Alhué",
+    "slug": "alhue"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Curacaví",
+    "slug": "curacavi"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "María Pinto",
+    "slug": "maria-pinto"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "San Pedro",
+    "slug": "san-pedro"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Talagante",
+    "slug": "talagante"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "El Monte",
+    "slug": "el-monte"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Isla de Maipo",
+    "slug": "isla-de-maipo"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Padre Hurtado",
+    "slug": "padre-hurtado"
+  },
+  {
+    "region": "Metropolitana",
+    "comuna": "Peñaflor",
+    "slug": "penaflor"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Rancagua",
+    "slug": "rancagua"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Codegua",
+    "slug": "codegua"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Coinco",
+    "slug": "coinco"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Coltauco",
+    "slug": "coltauco"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Doñihue",
+    "slug": "donihue"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Graneros",
+    "slug": "graneros"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Las Cabras",
+    "slug": "las-cabras"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Machalí",
+    "slug": "machali"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Malloa",
+    "slug": "malloa"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Mostazal",
+    "slug": "mostazal"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Olivar",
+    "slug": "olivar"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Peumo",
+    "slug": "peumo"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Pichidegua",
+    "slug": "pichidegua"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Quinta de Tilcoco",
+    "slug": "quinta-de-tilcoco"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Rengo",
+    "slug": "rengo"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Requínoa",
+    "slug": "requinoa"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "San Vicente",
+    "slug": "san-vicente"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Pichilemu",
+    "slug": "pichilemu"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "La Estrella",
+    "slug": "la-estrella"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Litueche",
+    "slug": "litueche"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Marchihue",
+    "slug": "marchihue"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Navidad",
+    "slug": "navidad"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Paredones",
+    "slug": "paredones"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "San Fernando",
+    "slug": "san-fernando"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Chépica",
+    "slug": "chepica"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Chimbarongo",
+    "slug": "chimbarongo"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Lolol",
+    "slug": "lolol"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Nancagua",
+    "slug": "nancagua"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Palmilla",
+    "slug": "palmilla"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Peralillo",
+    "slug": "peralillo"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Placilla",
+    "slug": "placilla"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Pumanque",
+    "slug": "pumanque"
+  },
+  {
+    "region": "Libertador General Bdo. O'Higgins",
+    "comuna": "Santa Cruz",
+    "slug": "santa-cruz"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Talca",
+    "slug": "talca"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Constitución",
+    "slug": "constitucion"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Curepto",
+    "slug": "curepto"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Empedrado",
+    "slug": "empedrado"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Maule",
+    "slug": "maule"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Pelarco",
+    "slug": "pelarco"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Pencahue",
+    "slug": "pencahue"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Río Claro",
+    "slug": "rio-claro"
+  },
+  {
+    "region": "Maule",
+    "comuna": "San Clemente",
+    "slug": "san-clemente"
+  },
+  {
+    "region": "Maule",
+    "comuna": "San Rafael",
+    "slug": "san-rafael"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Cauquenes",
+    "slug": "cauquenes"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Chanco",
+    "slug": "chanco"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Pelluhue",
+    "slug": "pelluhue"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Curicó",
+    "slug": "curico"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Hualañe",
+    "slug": "hualane"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Licantén",
+    "slug": "licanten"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Molina",
+    "slug": "molina"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Rauco",
+    "slug": "rauco"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Romeral",
+    "slug": "romeral"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Sagrada Familia",
+    "slug": "sagrada-familia"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Teno",
+    "slug": "teno"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Vichuquén",
+    "slug": "vichuquen"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Linares",
+    "slug": "linares"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Colbún",
+    "slug": "colbun"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Longaví",
+    "slug": "longavi"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Parral",
+    "slug": "parral"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Retiro",
+    "slug": "retiro"
+  },
+  {
+    "region": "Maule",
+    "comuna": "San Javier",
+    "slug": "san-javier"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Villa Alegre",
+    "slug": "villa-alegre"
+  },
+  {
+    "region": "Maule",
+    "comuna": "Yerbas Buenas",
+    "slug": "yerbas-buenas"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "San Carlos",
+    "slug": "san-carlos"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "San Fabián",
+    "slug": "san-fabian"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "Coihueco",
+    "slug": "coihueco"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "Ñiquén",
+    "slug": "niquen"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "San Nicolás",
+    "slug": "san-nicolas"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "Bulnes",
+    "slug": "bulnes"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "Chillán",
+    "slug": "chillan"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "Chillán Viejo",
+    "slug": "chillan-viejo"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "El Carmen",
+    "slug": "el-carmen"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "Pemuco",
+    "slug": "pemuco"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "Pinto",
+    "slug": "pinto"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "Quillón",
+    "slug": "quillon"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "San Ignacio",
+    "slug": "san-ignacio"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "Yungay",
+    "slug": "yungay"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "Quirihue",
+    "slug": "quirihue"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "Cobquecura",
+    "slug": "cobquecura"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "Coelemu",
+    "slug": "coelemu"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "Ninhue",
+    "slug": "ninhue"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "Portezuelo",
+    "slug": "portezuelo"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "Ránquil",
+    "slug": "ranquil"
+  },
+  {
+    "region": "Ñuble",
+    "comuna": "Treguaco",
+    "slug": "treguaco"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Concepción",
+    "slug": "concepcion"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Coronel",
+    "slug": "coronel"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Chiguayante",
+    "slug": "chiguayante"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Florida",
+    "slug": "florida"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Hualqui",
+    "slug": "hualqui"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Lota",
+    "slug": "lota"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Penco",
+    "slug": "penco"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "San Pedro de La Paz",
+    "slug": "san-pedro-de-la-paz"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Santa Juana",
+    "slug": "santa-juana"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Talcahuano",
+    "slug": "talcahuano"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Tomé",
+    "slug": "tome"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Hualpén",
+    "slug": "hualpen"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Lebu",
+    "slug": "lebu"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Arauco",
+    "slug": "arauco"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Cañete",
+    "slug": "canete"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Contulmo",
+    "slug": "contulmo"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Curanilahue",
+    "slug": "curanilahue"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Los Álamos",
+    "slug": "los-alamos"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Tirúa",
+    "slug": "tirua"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Los Ángeles",
+    "slug": "los-angeles"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Antuco",
+    "slug": "antuco"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Cabrero",
+    "slug": "cabrero"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Laja",
+    "slug": "laja"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Mulchén",
+    "slug": "mulchen"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Nacimiento",
+    "slug": "nacimiento"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Negrete",
+    "slug": "negrete"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Quilaco",
+    "slug": "quilaco"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Quilleco",
+    "slug": "quilleco"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "San Rosendo",
+    "slug": "san-rosendo"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Santa Bárbara",
+    "slug": "santa-barbara"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Tucapel",
+    "slug": "tucapel"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "yumbel",
+    "slug": "yumbel"
+  },
+  {
+    "region": "Del BioBío",
+    "comuna": "Alto Biobío",
+    "slug": "alto-biobio"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Temuco",
+    "slug": "temuco"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Carahue",
+    "slug": "carahue"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Cunco",
+    "slug": "cunco"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Curarrehue",
+    "slug": "curarrehue"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Freire",
+    "slug": "freire"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Galvarino",
+    "slug": "galvarino"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Gorbea",
+    "slug": "gorbea"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Lautaro",
+    "slug": "lautaro"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Loncoche",
+    "slug": "loncoche"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Melipeuco",
+    "slug": "melipeuco"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Nueva Imperial",
+    "slug": "nueva-imperial"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Padre Las Casas",
+    "slug": "padre-las-casas"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Perquenco",
+    "slug": "perquenco"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Pitrufquén",
+    "slug": "pitrufquen"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Pucón",
+    "slug": "pucon"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Saavedra",
+    "slug": "saavedra"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Teodoro Schmidt",
+    "slug": "teodoro-schmidt"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Toltén",
+    "slug": "tolten"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Vilcún",
+    "slug": "vilcun"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Villarrica",
+    "slug": "villarrica"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Cholchol",
+    "slug": "cholchol"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Angol",
+    "slug": "angol"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Collipulli",
+    "slug": "collipulli"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Curacautín",
+    "slug": "curacautin"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Ercilla",
+    "slug": "ercilla"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Lonquimay",
+    "slug": "lonquimay"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Los Sauces",
+    "slug": "los-sauces"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Lumaco",
+    "slug": "lumaco"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Purén",
+    "slug": "puren"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Renaico",
+    "slug": "renaico"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Traiguén",
+    "slug": "traiguen"
+  },
+  {
+    "region": "La Araucania",
+    "comuna": "Vicotira",
+    "slug": "vicotira"
+  },
+  {
+    "region": "Los Rios",
+    "comuna": "Valdivia",
+    "slug": "valdivia"
+  },
+  {
+    "region": "Los Rios",
+    "comuna": "Corral",
+    "slug": "corral"
+  },
+  {
+    "region": "Los Rios",
+    "comuna": "Lanco",
+    "slug": "lanco"
+  },
+  {
+    "region": "Los Rios",
+    "comuna": "Los Lagos",
+    "slug": "los-lagos"
+  },
+  {
+    "region": "Los Rios",
+    "comuna": "Máfil",
+    "slug": "mafil"
+  },
+  {
+    "region": "Los Rios",
+    "comuna": "Mariquina",
+    "slug": "mariquina"
+  },
+  {
+    "region": "Los Rios",
+    "comuna": "Paillaco",
+    "slug": "paillaco"
+  },
+  {
+    "region": "Los Rios",
+    "comuna": "Panguipulli",
+    "slug": "panguipulli"
+  },
+  {
+    "region": "Los Rios",
+    "comuna": "La Unión",
+    "slug": "la-union"
+  },
+  {
+    "region": "Los Rios",
+    "comuna": "Futrono",
+    "slug": "futrono"
+  },
+  {
+    "region": "Los Rios",
+    "comuna": "Lago Ranco",
+    "slug": "lago-ranco"
+  },
+  {
+    "region": "Los Rios",
+    "comuna": "Río Bueno",
+    "slug": "rio-bueno"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Puerto Montt",
+    "slug": "puerto-montt"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Calbuco",
+    "slug": "calbuco"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Cochamó",
+    "slug": "cochamo"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Fresia",
+    "slug": "fresia"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Frutillar",
+    "slug": "frutillar"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Los Muermos",
+    "slug": "los-muermos"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Llanquihue",
+    "slug": "llanquihue"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Maullín",
+    "slug": "maullin"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Puerto Varas",
+    "slug": "puerto-varas"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Castro",
+    "slug": "castro"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Ancud",
+    "slug": "ancud"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Chonchi",
+    "slug": "chonchi"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Curaco de Vélez",
+    "slug": "curaco-de-velez"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Dalcahue",
+    "slug": "dalcahue"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Puqueldón",
+    "slug": "puqueldon"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Queilén",
+    "slug": "queilen"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Quellón",
+    "slug": "quellon"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Quemchi",
+    "slug": "quemchi"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Quinchao",
+    "slug": "quinchao"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Osorno",
+    "slug": "osorno"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Puerto Octay",
+    "slug": "puerto-octay"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Purranque",
+    "slug": "purranque"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Puyehue",
+    "slug": "puyehue"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Río Negro",
+    "slug": "rio-negro"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "San Juan de la Costa",
+    "slug": "san-juan-de-la-costa"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "San Pablo",
+    "slug": "san-pablo"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Chaitén",
+    "slug": "chaiten"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Futaleufú",
+    "slug": "futaleufu"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Hualaiuhué",
+    "slug": "hualaiuhue"
+  },
+  {
+    "region": "Los Lagos",
+    "comuna": "Palena",
+    "slug": "palena"
+  },
+  {
+    "region": "Aysén del General Carlos Ibañez",
+    "comuna": "Couhaique",
+    "slug": "couhaique"
+  },
+  {
+    "region": "Aysén del General Carlos Ibañez",
+    "comuna": "Lago Verde",
+    "slug": "lago-verde"
+  },
+  {
+    "region": "Aysén del General Carlos Ibañez",
+    "comuna": "Aysén",
+    "slug": "aysen"
+  },
+  {
+    "region": "Aysén del General Carlos Ibañez",
+    "comuna": "Cisnes",
+    "slug": "cisnes"
+  },
+  {
+    "region": "Aysén del General Carlos Ibañez",
+    "comuna": "Guateicas",
+    "slug": "guateicas"
+  },
+  {
+    "region": "Aysén del General Carlos Ibañez",
+    "comuna": "Cochrane",
+    "slug": "cochrane"
+  },
+  {
+    "region": "Aysén del General Carlos Ibañez",
+    "comuna": "O'higgins",
+    "slug": "ohiggins"
+  },
+  {
+    "region": "Aysén del General Carlos Ibañez",
+    "comuna": "Tortel",
+    "slug": "tortel"
+  },
+  {
+    "region": "Aysén del General Carlos Ibañez",
+    "comuna": "Chile Chico",
+    "slug": "chile-chico"
+  },
+  {
+    "region": "Aysén del General Carlos Ibañez",
+    "comuna": "Río Ibañez",
+    "slug": "rio-ibanez"
+  },
+  {
+    "region": "Magallanes y de la Antártica",
+    "comuna": "Punta Arenas",
+    "slug": "punta-arenas"
+  },
+  {
+    "region": "Magallanes y de la Antártica",
+    "comuna": "Laguna Blanca",
+    "slug": "laguna-blanca"
+  },
+  {
+    "region": "Magallanes y de la Antártica",
+    "comuna": "Río Verde",
+    "slug": "rio-verde"
+  },
+  {
+    "region": "Magallanes y de la Antártica",
+    "comuna": "San Gregorio",
+    "slug": "san-gregorio"
+  },
+  {
+    "region": "Magallanes y de la Antártica",
+    "comuna": "Cabo de Hornos",
+    "slug": "cabo-de-hornos"
+  },
+  {
+    "region": "Magallanes y de la Antártica",
+    "comuna": "Antártica",
+    "slug": "antartica"
+  },
+  {
+    "region": "Magallanes y de la Antártica",
+    "comuna": "Porvenir",
+    "slug": "porvenir"
+  },
+  {
+    "region": "Magallanes y de la Antártica",
+    "comuna": "Primavera",
+    "slug": "primavera"
+  },
+  {
+    "region": "Magallanes y de la Antártica",
+    "comuna": "Timaukel",
+    "slug": "timaukel"
+  },
+  {
+    "region": "Magallanes y de la Antártica",
+    "comuna": "Natales",
+    "slug": "natales"
+  },
+  {
+    "region": "Magallanes y de la Antártica",
+    "comuna": "Torres del Paine",
+    "slug": "torres-del-paine"
+  }
+]
