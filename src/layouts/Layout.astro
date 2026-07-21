@@ -94,6 +94,8 @@ const ogImageURL = new URL('/og-image.png', Astro.site || Astro.url.origin).href
 				}
 			</script>
 		)}
+
+		{!isDev && <script src="../lib/posthog.ts"></script>}
 	</body>
 </html>
 
