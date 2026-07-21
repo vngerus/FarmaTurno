@@ -27,13 +27,40 @@ if (!respuesta.ok) {
 }
 const regiones = await respuesta.json();
 
+// Correcciones para typos conocidos en el dataset upstream (jromerof/regiones-chile)
+const CORRECCIONES_REGION = {
+  'La Araucania': 'La Araucanía',
+  'Los Rios': 'Los Ríos',
+};
+
+const CORRECCIONES_COMUNA = {
+  'Vitcarua': 'Vitacura',
+  'Couhaique': 'Coyhaique',
+  'Vicotira': 'Victoria',
+  'yumbel': 'Yumbel',
+  'Guateicas': 'Guaitecas',
+  "O'higgins": "O'Higgins",
+};
+
 const comunas = [];
 for (const region of regiones) {
+  // Aplicar correcciones de región
+  let regionName = region.name;
+  if (CORRECCIONES_REGION[regionName]) {
+    regionName = CORRECCIONES_REGION[regionName];
+  }
+
   for (const comuna of region.comunas) {
+    // Aplicar correcciones de comuna
+    let comunaName = comuna.name;
+    if (CORRECCIONES_COMUNA[comunaName]) {
+      comunaName = CORRECCIONES_COMUNA[comunaName];
+    }
+
     comunas.push({
-      region: region.name,
-      comuna: comuna.name,
-      slug: generarSlug(comuna.name),
+      region: regionName,
+      comuna: comunaName,
+      slug: generarSlug(comunaName),
     });
   }
 }

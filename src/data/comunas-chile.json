@@ -566,8 +566,8 @@
   },
   {
     "region": "Metropolitana",
-    "comuna": "Vitcarua",
-    "slug": "vitcarua"
+    "comuna": "Vitacura",
+    "slug": "vitacura"
   },
   {
     "region": "Metropolitana",
@@ -1246,7 +1246,7 @@
   },
   {
     "region": "Del BioBío",
-    "comuna": "yumbel",
+    "comuna": "Yumbel",
     "slug": "yumbel"
   },
   {
@@ -1255,222 +1255,222 @@
     "slug": "alto-biobio"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Temuco",
     "slug": "temuco"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Carahue",
     "slug": "carahue"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Cunco",
     "slug": "cunco"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Curarrehue",
     "slug": "curarrehue"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Freire",
     "slug": "freire"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Galvarino",
     "slug": "galvarino"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Gorbea",
     "slug": "gorbea"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Lautaro",
     "slug": "lautaro"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Loncoche",
     "slug": "loncoche"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Melipeuco",
     "slug": "melipeuco"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Nueva Imperial",
     "slug": "nueva-imperial"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Padre Las Casas",
     "slug": "padre-las-casas"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Perquenco",
     "slug": "perquenco"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Pitrufquén",
     "slug": "pitrufquen"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Pucón",
     "slug": "pucon"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Saavedra",
     "slug": "saavedra"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Teodoro Schmidt",
     "slug": "teodoro-schmidt"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Toltén",
     "slug": "tolten"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Vilcún",
     "slug": "vilcun"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Villarrica",
     "slug": "villarrica"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Cholchol",
     "slug": "cholchol"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Angol",
     "slug": "angol"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Collipulli",
     "slug": "collipulli"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Curacautín",
     "slug": "curacautin"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Ercilla",
     "slug": "ercilla"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Lonquimay",
     "slug": "lonquimay"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Los Sauces",
     "slug": "los-sauces"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Lumaco",
     "slug": "lumaco"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Purén",
     "slug": "puren"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Renaico",
     "slug": "renaico"
   },
   {
-    "region": "La Araucania",
+    "region": "La Araucanía",
     "comuna": "Traiguén",
     "slug": "traiguen"
   },
   {
-    "region": "La Araucania",
-    "comuna": "Vicotira",
-    "slug": "vicotira"
+    "region": "La Araucanía",
+    "comuna": "Victoria",
+    "slug": "victoria"
   },
   {
-    "region": "Los Rios",
+    "region": "Los Ríos",
     "comuna": "Valdivia",
     "slug": "valdivia"
   },
   {
-    "region": "Los Rios",
+    "region": "Los Ríos",
     "comuna": "Corral",
     "slug": "corral"
   },
   {
-    "region": "Los Rios",
+    "region": "Los Ríos",
     "comuna": "Lanco",
     "slug": "lanco"
   },
   {
-    "region": "Los Rios",
+    "region": "Los Ríos",
     "comuna": "Los Lagos",
     "slug": "los-lagos"
   },
   {
-    "region": "Los Rios",
+    "region": "Los Ríos",
     "comuna": "Máfil",
     "slug": "mafil"
   },
   {
-    "region": "Los Rios",
+    "region": "Los Ríos",
     "comuna": "Mariquina",
     "slug": "mariquina"
   },
   {
-    "region": "Los Rios",
+    "region": "Los Ríos",
     "comuna": "Paillaco",
     "slug": "paillaco"
   },
   {
-    "region": "Los Rios",
+    "region": "Los Ríos",
     "comuna": "Panguipulli",
     "slug": "panguipulli"
   },
   {
-    "region": "Los Rios",
+    "region": "Los Ríos",
     "comuna": "La Unión",
     "slug": "la-union"
   },
   {
-    "region": "Los Rios",
+    "region": "Los Ríos",
     "comuna": "Futrono",
     "slug": "futrono"
   },
   {
-    "region": "Los Rios",
+    "region": "Los Ríos",
     "comuna": "Lago Ranco",
     "slug": "lago-ranco"
   },
   {
-    "region": "Los Rios",
+    "region": "Los Ríos",
     "comuna": "Río Bueno",
     "slug": "rio-bueno"
   },
@@ -1626,8 +1626,8 @@
   },
   {
     "region": "Aysén del General Carlos Ibañez",
-    "comuna": "Couhaique",
-    "slug": "couhaique"
+    "comuna": "Coyhaique",
+    "slug": "coyhaique"
   },
   {
     "region": "Aysén del General Carlos Ibañez",
@@ -1646,8 +1646,8 @@
   },
   {
     "region": "Aysén del General Carlos Ibañez",
-    "comuna": "Guateicas",
-    "slug": "guateicas"
+    "comuna": "Guaitecas",
+    "slug": "guaitecas"
   },
   {
     "region": "Aysén del General Carlos Ibañez",
@@ -1656,7 +1656,7 @@
   },
   {
     "region": "Aysén del General Carlos Ibañez",
-    "comuna": "O'higgins",
+    "comuna": "O'Higgins",
     "slug": "ohiggins"
   },
   {
