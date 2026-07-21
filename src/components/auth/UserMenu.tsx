@@ -20,7 +20,7 @@ export default function UserMenu({ user, loading, onLogout, onOpenLogin }: UserM
     return (
       <button
         onClick={onOpenLogin}
-        className="inline-flex items-center gap-2 bg-[#faf9f4] hover:bg-[#0f1f19] border-2 border-[#0f1f19] text-[#0f1f19] hover:text-[#faf9f4] text-xs font-bold font-mono uppercase px-4 py-2 rounded-xl transition-all cursor-pointer"
+        className="inline-flex items-center justify-center gap-2 bg-[#faf9f4] hover:bg-[#0f1f19] border-2 border-[#0f1f19] text-[#0f1f19] hover:text-[#faf9f4] text-xs font-bold font-mono uppercase px-4 py-2 rounded-xl transition-all cursor-pointer min-w-[140px] min-h-[38px]"
       >
         <UserIcon className="w-4 h-4" />
         Iniciar Sesión
