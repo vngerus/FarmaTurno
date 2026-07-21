@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://farmaturno-orpin.vercel.app',
+  site: 'https://www.farmaturno.cl',
   // Astro 5+ removed "hybrid": "static" now prerenders by default while still
   // allowing individual routes to opt out via `export const prerender = false`,
   // which is what later tasks' on-demand API routes rely on.
