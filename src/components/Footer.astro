@@ -24,15 +24,15 @@ const currentYear = new Date().getFullYear();
           <span class="font-bold text-[#0f1f19] font-heading">FarmaTurno Chile</span>
         </div>
         <p class="text-xs leading-relaxed max-w-sm">
-          Buscador de farmacias de turno nacionales y gestor personal de medicamentos. Desarrollado
-          como evidencia evaluativa para la Unidad 3 de INACAP (SPA con React + Islas de Astro).
+          Buscador de farmacias de turno nacionales y gestor personal de medicamentos, con datos
+          oficiales de MINSAL e ISP.
         </p>
       </div>
 
       <div>
-        <h4 class="text-xs font-bold font-mono text-[#0f1f19] uppercase tracking-widest mb-4">
+        <h2 class="text-xs font-bold font-mono text-[#0f1f19] uppercase tracking-widest mb-4">
           Teléfonos de Emergencia
-        </h4>
+        </h2>
         <ul class="space-y-2 text-xs font-mono">
           <li>
             <a
@@ -62,14 +62,36 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <div>
-        <h4 class="text-xs font-bold font-mono text-[#0f1f19] uppercase tracking-widest mb-4">
-          Fuentes & Tecnología
-        </h4>
-        <p class="text-xs leading-relaxed">
-          Los datos de farmacias de turno son obtenidos en tiempo real del endpoint público oficial
-          de la Subsecretaría de Redes Asistenciales, Ministerio de Salud de Chile (MINSAL). El
-          catálogo de medicamentos proviene del Instituto de Salud Pública (ISP) y CENABAST.
-        </p>
+        <h2 class="text-xs font-bold font-mono text-[#0f1f19] uppercase tracking-widest mb-4">
+          Enlaces
+        </h2>
+        <ul class="space-y-2 text-xs font-mono">
+          <li>
+            <a href="/farmacias-de-turno" class="hover:text-[#065f46] transition-colors font-medium">
+              Farmacias por Comuna
+            </a>
+          </li>
+          <li>
+            <a href="/sobre-nosotros" class="hover:text-[#065f46] transition-colors font-medium">
+              Sobre Nosotros
+            </a>
+          </li>
+          <li>
+            <a href="/terminos-y-condiciones" class="hover:text-[#065f46] transition-colors font-medium">
+              Términos y Condiciones
+            </a>
+          </li>
+          <li>
+            <a href="/politica-de-privacidad" class="hover:text-[#065f46] transition-colors font-medium">
+              Política de Privacidad
+            </a>
+          </li>
+          <li>
+            <a href="/contacto" class="hover:text-[#065f46] transition-colors font-medium">
+              Contacto
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
 
@@ -77,13 +99,7 @@ const currentYear = new Date().getFullYear();
       class="border-t-2 border-[#0f1f19] pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] gap-4"
     >
       <p>&copy; {currentYear} FarmaTurno Chile. Todos los derechos reservados.</p>
-      <div class="flex items-center gap-4">
-        <a
-          href="/politica-de-privacidad"
-          class="font-mono uppercase tracking-wide hover:text-[#065f46] transition-colors"
-        >
-          Política de Privacidad
-        </a>
+      <div class="flex items-center gap-4 flex-wrap justify-center">
         <a
           href="https://github.com/sponsors/vngerus"
           target="_blank"

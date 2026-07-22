@@ -4,6 +4,9 @@ import tsParser from "@typescript-eslint/parser";
 
 export default [
   {
+    ignores: ["dist/**", ".vercel/**", ".astro/**"]
+  },
+  {
     files: ["**/*.{js,jsx,ts,tsx}"],
     plugins: {
       react: reactPlugin,

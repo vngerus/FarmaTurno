@@ -1,5 +1,5 @@
 import React from 'react';
-import { Filter, Search, Star } from 'lucide-react';
+import { Filter, Search, Star, MapPin, RotateCcw } from 'lucide-react';
 import type { RegionOption, ComunaOption } from '../../types/regiones.types';
 import type { User } from '../../types/auth.types';
 
@@ -14,6 +14,8 @@ interface FiltrosBuscadorProps {
   onComunaChange: (comunaId: string) => void;
   onSearchChange: (query: string) => void;
   onSaveFavoriteZone: (regionId: string, comunaId: string, comunaName: string) => void;
+  onGoToFavoriteZone: () => void;
+  onResetFilters: () => void;
 }
 
 export default function FiltrosBuscador({
@@ -27,6 +29,8 @@ export default function FiltrosBuscador({
   onComunaChange,
   onSearchChange,
   onSaveFavoriteZone,
+  onGoToFavoriteZone,
+  onResetFilters,
 }: FiltrosBuscadorProps) {
   const selectedComunaName = React.useMemo(() => {
     const com = comunas.find(c => c.id === selectedComuna);
@@ -97,7 +101,7 @@ export default function FiltrosBuscador({
         </div>
       </div>
 
-      <div className="lg:col-span-3 relative">
+      <div className="lg:col-span-2 relative">
         <label
           htmlFor="search-input"
           className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2"
@@ -119,7 +123,27 @@ export default function FiltrosBuscador({
         </div>
       </div>
 
-      <div className="lg:col-span-1 flex items-center justify-center lg:justify-end h-11.5 mt-2 lg:mt-0">
+      <div className="lg:col-span-2 flex items-center justify-center lg:justify-end gap-2 h-11.5 mt-2 lg:mt-0">
+        {(selectedRegion || selectedComuna || searchQuery) && (
+          <button
+            type="button"
+            onClick={onResetFilters}
+            title="Reiniciar filtros"
+            className="p-3 border rounded-xl transition-all cursor-pointer bg-slate-50 border-slate-200 hover:border-mint-400 text-slate-500 hover:text-mint-600"
+          >
+            <RotateCcw className="w-5 h-5" />
+          </button>
+        )}
+        {activeUser?.favoriteRegion && (
+          <button
+            type="button"
+            onClick={onGoToFavoriteZone}
+            title="Ir a mi zona favorita"
+            className="p-3 border rounded-xl transition-all cursor-pointer bg-slate-50 border-slate-200 hover:border-mint-400 text-slate-500 hover:text-mint-600"
+          >
+            <MapPin className="w-5 h-5" />
+          </button>
+        )}
         {activeUser && selectedRegion && selectedComuna ? (
           <button
             type="button"

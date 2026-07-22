@@ -1,0 +1,54 @@
+---
+// src/pages/farmacias-de-turno/index.astro
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import comunas from '../../data/comunas-chile.json';
+
+const porRegion = new Map<string, { comuna: string; slug: string }[]>();
+for (const { region, comuna, slug } of comunas) {
+  if (!porRegion.has(region)) porRegion.set(region, []);
+  porRegion.get(region)!.push({ comuna, slug });
+}
+for (const lista of porRegion.values()) {
+  lista.sort((a, b) => a.comuna.localeCompare(b.comuna));
+}
+
+const title = 'Farmacias de Turno por Comuna en Chile | FarmaTurno';
+const description = 'Encuentra la farmacia de turno de tu comuna en cualquier región de Chile. Listado completo con dirección, horario y teléfono actualizados desde MINSAL.';
+---
+
+<Layout title={title} description={description}>
+  <Header />
+
+  <main class="grow container mx-auto px-4 py-8 md:py-12">
+    <h1 class="text-3xl md:text-4xl font-black tracking-tight text-[#0f1f19] font-heading mb-4">
+      Farmacias de Turno por Comuna
+    </h1>
+    <p class="text-brand-body text-sm md:text-base leading-relaxed mb-10 max-w-2xl">
+      Elige tu comuna para ver la farmacia de turno vigente, o revisa el
+      <a href="/mapa-turnos" class="text-[#065f46] font-bold underline">mapa interactivo completo</a>.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {Array.from(porRegion.entries()).map(([region, lista]) => (
+        <div>
+          <h2 class="text-xs font-bold font-mono uppercase tracking-widest text-[#065f46] mb-3">
+            {region}
+          </h2>
+          <ul class="space-y-1.5 text-sm">
+            {lista.map(({ comuna, slug }) => (
+              <li>
+                <a href={`/farmacias-de-turno/${slug}`} class="text-[#0f1f19] hover:text-[#065f46] transition-colors font-medium">
+                  {comuna}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

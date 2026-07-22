@@ -4,11 +4,13 @@ import '../styles/global.css';
 interface Props {
 	title?: string;
 	description?: string;
+	noindex?: boolean;
 }
 
 const {
 	title = "FarmaTurno Chile - Farmacias de Turno en Emergencias",
-	description = "Encuentra farmacias de turno en Chile de forma rápida y sencilla. Controla tu botiquín personal y recibe alertas de stock."
+	description = "Encuentra farmacias de turno en Chile de forma rápida y sencilla. Controla tu botiquín personal y recibe alertas de stock.",
+	noindex = false
 } = Astro.props;
 
 const isDev = import.meta.env.DEV;
@@ -35,7 +37,7 @@ const ogImageURL = new URL('/og-image.png', Astro.site || Astro.url.origin).href
 		<meta name="description" content={description} />
 		<meta name="keywords" content="farmacias de turno, farmacias chile, botiquin chile, minsal, isp, farmacias de guardia, medicamentos chile, buscar farmacia" />
 		<meta name="author" content="FarmaTurno Chile" />
-		<meta name="robots" content="index, follow" />
+		<meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
 		
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalURL} />
@@ -63,13 +65,13 @@ const ogImageURL = new URL('/og-image.png', Astro.site || Astro.url.origin).href
 				"@type": "WebSite",
 				"name": "FarmaTurno Chile",
 				"alternateName": "FarmaTurno",
-				"url": "https://farmaturno.cl",
+				"url": "https://www.farmaturno.cl",
 				"description": "Buscador instantáneo de farmacias de turno en todo Chile con mapas integrados, geolocalización y control de medicamentos.",
 				"potentialAction": {
 					"@type": "SearchAction",
 					"target": {
 						"@type": "EntryPoint",
-						"urlTemplate": "https://farmaturno.cl/mapa-turnos?q={search_term_string}"
+						"urlTemplate": "https://www.farmaturno.cl/mapa-turnos?q={search_term_string}"
 					},
 					"query-input": "required name=search_term_string"
 				}
@@ -94,6 +96,8 @@ const ogImageURL = new URL('/og-image.png', Astro.site || Astro.url.origin).href
 				}
 			</script>
 		)}
+
+		{!isDev && <script src="../lib/posthog.ts"></script>}
 	</body>
 </html>
 

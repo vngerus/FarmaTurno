@@ -73,7 +73,7 @@ export default function BuscadorMedicamentos() {
         const data = await buscarMedicamentos(term, controller.signal);
         setSuggestions(Array.isArray(data) ? data.slice(0, MAX_SUGERENCIAS) : []);
         setShowSuggestions(true);
-      } catch (err) {
+      } catch {
         if (controller.signal.aborted) return;
         // Fallo silencioso: el autocompletado es una ayuda, no crítico
         setSuggestions([]);
@@ -144,12 +144,8 @@ export default function BuscadorMedicamentos() {
                     onClick={() => handleSelectSuggestion(s.nombreProducto)}
                     className="w-full text-left px-4 py-2.5 hover:bg-mint-50 transition-colors flex flex-col gap-0.5 border-b border-slate-100 last:border-b-0"
                   >
-                    <span className="text-sm font-semibold text-slate-800">
-                      {s.nombreProducto}
-                    </span>
-                    <span className="text-xs text-slate-500 font-mono">
-                      {s.principioActivo}
-                    </span>
+                    <span className="text-sm font-semibold text-slate-800">{s.nombreProducto}</span>
+                    <span className="text-xs text-slate-500 font-mono">{s.principioActivo}</span>
                   </button>
                 </li>
               ))}

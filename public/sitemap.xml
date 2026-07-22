@@ -1,32 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://farmaturno.cl/</loc>
-    <lastmod>2026-07-13</lastmod>
+    <loc>https://www.farmaturno.cl/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://farmaturno.cl/mapa-turnos</loc>
-    <lastmod>2026-07-13</lastmod>
+    <loc>https://www.farmaturno.cl/mapa-turnos</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://farmaturno.cl/comparador-medicamentos</loc>
-    <lastmod>2026-07-13</lastmod>
+    <loc>https://www.farmaturno.cl/comparador-medicamentos</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://farmaturno.cl/mi-botiquin</loc>
-    <lastmod>2026-07-13</lastmod>
+    <loc>https://www.farmaturno.cl/mi-botiquin</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://farmaturno.cl/politica-de-privacidad</loc>
-    <lastmod>2026-07-13</lastmod>
+    <loc>https://www.farmaturno.cl/sobre-nosotros</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.farmaturno.cl/contacto</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.farmaturno.cl/terminos-y-condiciones</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.farmaturno.cl/politica-de-privacidad</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

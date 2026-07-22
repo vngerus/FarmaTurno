@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://farmaturno.cl/sitemap.xml
+Sitemap: https://www.farmaturno.cl/sitemap.xml

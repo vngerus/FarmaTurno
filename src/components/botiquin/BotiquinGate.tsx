@@ -1,51 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Lock, UserPlus } from 'lucide-react';
 import BotiquinCRUD from './BotiquinCRUD';
-import { supabase } from '../../lib/supabaseClient';
-import { obtenerUsuarioCompleto } from '../../services/perfil.service';
-import type { User } from '../../types/auth.types';
+import { useAuth } from '../../hooks/useAuth';
 
 export default function BotiquinGate() {
-  const [activeUser, setActiveUser] = useState<User | null>(null);
-  const [checked, setChecked] = useState<boolean>(false);
-
-  useEffect(() => {
-    const cargarUsuario = async (userId: string, email: string) => {
-      try {
-        const user = await obtenerUsuarioCompleto(userId, email);
-        setActiveUser(user);
-      } catch (e) {
-        console.error('Error cargando perfil:', e);
-      } finally {
-        setChecked(true);
-      }
-    };
-
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session?.user?.email) {
-        cargarUsuario(session.user.id, session.user.email);
-      } else {
-        setChecked(true);
-      }
-    });
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (session?.user?.email) {
-        cargarUsuario(session.user.id, session.user.email);
-      } else {
-        setActiveUser(null);
-        setChecked(true);
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
+  const { user, checked } = useAuth();
 
   if (!checked) return null;
 
-  if (!activeUser) {
+  if (!user) {
     return (
       <div className="card-surface p-10 md:p-14 text-center max-w-lg mx-auto">
         <div className="bg-[#faf9f4] border-2 border-[#0f1f19] w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5">
@@ -66,5 +29,6 @@ export default function BotiquinGate() {
     );
   }
 
-  return <BotiquinCRUD user={activeUser} />;
+  return <BotiquinCRUD user={user} />;
 }
+

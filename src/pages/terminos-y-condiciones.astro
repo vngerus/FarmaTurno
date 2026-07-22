@@ -1,0 +1,166 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const actualizado = new Date().toLocaleDateString('es-CL', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Layout
+  title="Términos y Condiciones - FarmaTurno Chile"
+  description="Condiciones de uso de FarmaTurno Chile."
+>
+  <Header />
+
+  <main class="grow container mx-auto px-4 py-10 md:py-16 max-w-3xl">
+    <div class="border-b-2 border-[#0f1f19] pb-6 mb-8">
+      <span class="font-mono text-[13.5px] font-bold text-[#e8632c] tracking-wide uppercase">Legal</span>
+      <h1 class="mt-1.5 font-heading font-bold text-3xl md:text-4xl tracking-tight text-[#0f1f19]">
+        Términos y Condiciones
+      </h1>
+      <p class="mt-2 text-sm text-brand-body">Última actualización: {actualizado}</p>
+    </div>
+
+    <div class="space-y-8 text-[15px] leading-relaxed text-brand-body">
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">1. Aceptación de términos</h2>
+        <p>
+          Al usar FarmaTurno Chile aceptas estos términos. Si no estás de acuerdo, no debes usar la
+          aplicación.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">2. Descripción del servicio</h2>
+        <p>
+          FarmaTurno Chile ofrece un buscador de farmacias de turno con datos de fuentes oficiales
+          (MINSAL), un botiquín personal para llevar control de medicamentos, y un catálogo
+          referencial de medicamentos (ISP/CENABAST). El servicio se entrega "tal cual", sin
+          garantía de disponibilidad continua.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">3. Cuentas de usuario</h2>
+        <p>
+          Eres responsable de mantener la confidencialidad de tu contraseña y de toda actividad
+          realizada desde tu cuenta. Debes proporcionar información de contacto válida al
+          registrarte. Si sospechas de un uso no autorizado de tu cuenta, cambia tu contraseña de
+          inmediato desde
+          <a href="/perfil" class="text-[#065f46] font-bold hover:underline">tu perfil</a> o
+          contáctanos.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">4. Uso aceptable</h2>
+        <p>
+          No está permitido: intentar extraer datos de forma masiva y automatizada (scraping) fuera
+          de los mecanismos que la aplicación ofrece, abusar de las solicitudes al servidor (incluido
+          intentar evadir los límites de solicitudes), usar bots o scripts automatizados contra los
+          formularios de registro o contacto, ni usar la aplicación con fines ilegales o para dañar
+          el servicio.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">
+          5. Exención de responsabilidad médica
+        </h2>
+        <p>
+          La información de este sitio, incluyendo horarios de farmacias de turno y datos del
+          catálogo de medicamentos, es referencial. Los horarios de turno provienen de MINSAL y
+          pueden no reflejar cambios de último momento; el catálogo de medicamentos no reemplaza el
+          consejo de un profesional de la salud. Ante una emergencia, comunícate con el SAMU (131) o
+          acude al centro de salud más cercano.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">
+          6. Precisión de los datos de terceros
+        </h2>
+        <p>
+          Los datos de farmacias de turno provienen del endpoint público de MINSAL, y el catálogo de
+          medicamentos de ISP/CENABAST. No garantizamos que estos datos estén siempre actualizados,
+          completos o libres de errores, ya que dependemos de que las fuentes oficiales los publiquen
+          correctamente. Si encuentras un dato incorrecto, puedes reportarlo desde nuestra
+          <a href="/contacto" class="text-[#065f46] font-bold hover:underline">página de contacto</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">7. Limitación de responsabilidad</h2>
+        <p>
+          FarmaTurno Chile se ofrece de forma gratuita y sin garantías de ningún tipo. En la máxima
+          medida permitida por la ley, no somos responsables por decisiones tomadas en base a la
+          información del sitio, ni por daños derivados de la indisponibilidad temporal del servicio,
+          errores en los datos de terceros, o pérdida de datos por causas fuera de nuestro control.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">8. Propiedad intelectual</h2>
+        <p>
+          El diseño, código y marca de FarmaTurno Chile pertenecen a su autor. Los datos de
+          farmacias y medicamentos pertenecen a sus respectivas fuentes oficiales (MINSAL, ISP,
+          CENABAST).
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">
+          9. Suspensión o cierre de cuentas
+        </h2>
+        <p>
+          Podemos suspender o cerrar una cuenta que incumpla la sección "Uso aceptable" de estos
+          términos, previo intento de contacto cuando sea razonablemente posible.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">10. Cambios al servicio o a estos términos</h2>
+        <p>
+          Podemos modificar el servicio o estos términos en cualquier momento. Los cambios
+          relevantes se reflejarán en la fecha de "Última actualización" de esta página.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">11. Terminación de cuenta</h2>
+        <p>
+          Puedes eliminar tu cuenta de forma permanente en cualquier momento desde
+          <a href="/perfil" class="text-[#065f46] font-bold hover:underline">tu perfil</a>, sección
+          "Zona de peligro". Esto borra tu perfil, favoritos y botiquín asociados.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">12. Divisibilidad</h2>
+        <p>
+          Si alguna cláusula de estos términos se considera inválida o inaplicable, el resto de las
+          cláusulas se mantiene vigente.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">13. Ley aplicable</h2>
+        <p>Estos términos se rigen por las leyes de la República de Chile.</p>
+      </section>
+
+      <section>
+        <h2 class="font-heading font-bold text-lg text-[#0f1f19] mb-2">14. Contacto</h2>
+        <p>
+          Para dudas sobre estos términos, escríbenos desde nuestra
+          <a href="/contacto" class="text-[#065f46] font-bold hover:underline">página de contacto</a>.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

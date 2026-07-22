@@ -3,7 +3,7 @@ import type { User } from '../types/auth.types';
 
 export async function obtenerUsuarioCompleto(userId: string, email: string): Promise<User> {
   const [{ data: profile, error: profileError }, { data: favoritos, error: favoritosError }] = await Promise.all([
-    supabase.from('profiles').select('username, favorite_region, favorite_comuna').eq('id', userId).single(),
+    supabase.from('profiles').select('username, nombre, apellido, favorite_region, favorite_comuna').eq('id', userId).single(),
     supabase.from('favoritos_farmacias').select('local_id').eq('user_id', userId)
   ]);
 
@@ -14,10 +14,17 @@ export async function obtenerUsuarioCompleto(userId: string, email: string): Pro
     id: userId,
     username: profile?.username ?? email.split('@')[0],
     email,
+    nombre: profile?.nombre ?? null,
+    apellido: profile?.apellido ?? null,
     favoriteRegion: profile?.favorite_region ?? '',
     favoriteComuna: profile?.favorite_comuna ?? '',
     favoritePharmacies: (favoritos ?? []).map(f => f.local_id)
   };
+}
+
+export async function actualizarNombreApellido(userId: string, nombre: string, apellido: string): Promise<void> {
+  const { error } = await supabase.from('profiles').update({ nombre, apellido }).eq('id', userId);
+  if (error) throw error;
 }
 
 export async function actualizarZonaFavorita(userId: string, regionId: string, comunaName: string): Promise<void> {
